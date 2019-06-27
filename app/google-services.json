@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "149174747276",
+    "firebase_url": "https://utaliiguide.firebaseio.com",
+    "project_id": "utaliiguide",
+    "storage_bucket": "utaliiguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149174747276:android:f47548b43daeec4d",
+        "android_client_info": {
+          "package_name": "com.utaliiguides"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149174747276-sci24kgt4q4g3s709aplk7oij9e1d4m3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.utaliiguides",
+            "certificate_hash": "31647234e34f208578eda7b209948a9233924f28"
+          }
+        },
+        {
+          "client_id": "149174747276-dh3pip3vanmsmmfhvt04ogus27fhskou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6L-ELMPskl3eaDabLwXJmHrGRj01R5xA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149174747276-dh3pip3vanmsmmfhvt04ogus27fhskou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
