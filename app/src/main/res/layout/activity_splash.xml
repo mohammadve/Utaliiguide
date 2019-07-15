@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/rl_splash_main"
         android:background="@color/colorWhite"
+
 >
 
 
     <ImageView android:layout_width="112dp" android:layout_height="112dp"
-               android:src="@drawable/ic_logo"
+               android:src="@mipmap/ic_logo_login"
                android:layout_centerHorizontal="true"
                android:layout_marginTop="110dp"
 
@@ -20,7 +21,7 @@
 
     <ImageView android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:src="@drawable/ic_launcher_background"
+               android:src="@mipmap/bg"
                android:scaleType="fitXY"
                android:layout_alignParentBottom="true"
     />
@@ -46,7 +47,7 @@
                 android:background="@drawable/rounded_rect_orange"
                 android:textColor="@android:color/white"
                 android:text="@string/text_get_started"
-
+                android:visibility="gone"
         />
 
         <com.utaliiguides.RobotoRegularTextView
@@ -58,12 +59,8 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:text="@string/text_learn_more"
-
+                android:visibility="gone"
         />
 
     </LinearLayout>
-
-
-
-
 </RelativeLayout>

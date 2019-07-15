@@ -10,21 +10,18 @@ import kotlinx.android.synthetic.main.activity_forget_pass.*
 class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forget_pass)
 
+        toolbar_recovery.title = ""
+        toolbar_recovery.setNavigationIcon(R.drawable.arrow_back_black)
+        setSupportActionBar(toolbar_recovery)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar_recovery.setNavigationOnClickListener { finish() }
 
         tv_send_otp.setOnClickListener(this)
-
     }
-
-
-
-
 
     override fun onClick(v: View?) {
 

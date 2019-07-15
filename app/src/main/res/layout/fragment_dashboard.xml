@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewRequests"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp">
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/tv_request"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/grey"
+                        android:textSize="14sp"
+                        android:text="@string/requests"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_newRequestIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_request"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_newRequest"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_new_request"/>
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/tv_newRequest"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_newRequestIcon"
+                        app:layout_constraintRight_toRightOf="@+id/viewRequestCount"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_request"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="New requests"/>
+
+                <FrameLayout
+                        android:id="@+id/viewRequestCount"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:layout_constraintLeft_toRightOf="@+id/tv_newRequest"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_forwardIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_request"
+                        android:background="@drawable/circle_orange_bg">
+
+                    <com.utaliiguides.RobotoMediumTextView
+                            android:id="@+id/tv_newRequestCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="12sp"
+                            android:text="20"
+                            android:layout_gravity="center"/>
+
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_forwardIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@+id/viewRequestCount"
+                        app:layout_constraintTop_toTopOf="@+id/viewRequestCount"
+                        app:layout_constraintBottom_toBottomOf="@+id/viewRequestCount"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:src="@mipmap/ic_forword"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_yourTripsMsg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewRequests"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                android:text="@string/text_your_trips"
+                android:layout_marginTop="10dp"/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tripRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_yourTripsMsg"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none"/>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabCreateNewTour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                app:elevation="4dp"
+                android:src="@drawable/ic_add_white"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

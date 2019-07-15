@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_dayNameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textColor="@color/grey_6"
+                android:textSize="12sp"
+                android:text="Monday"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_dateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dayNameText"
+                android:textColor="@color/colorBlack_2"
+                android:textSize="14sp"
+                android:text="15 May, 2019"
+                android:paddingTop="2dp"/>
+
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_poolType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dayNameText"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:paddingTop="2dp"
+                android:text="Pool"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_messageUserProfileImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dateText"
+                app:layout_constraintRight_toLeftOf="@+id/tv_poolDetail"
+                android:src="@mipmap/ic_pool_home"
+        android:layout_marginTop="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_poolDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/tv_amount"
+                app:layout_constraintLeft_toRightOf="@+id/iv_messageUserProfileImage"
+                app:layout_constraintTop_toTopOf="@+id/iv_messageUserProfileImage"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_messageUserProfileImage"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="16/20"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:paddingLeft="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_messageUserProfileImage"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_messageUserProfileImage"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="$ 200.00"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

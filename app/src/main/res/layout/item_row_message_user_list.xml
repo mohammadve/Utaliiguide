@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_messageUserProfileImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_messageUserName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@mipmap/ic_profile_placeholder"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_messageUserName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/tv_dateTimeText"
+                app:layout_constraintLeft_toRightOf="@+id/iv_messageUserProfileImage"
+                app:layout_constraintTop_toTopOf="@+id/iv_messageUserProfileImage"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="Tammie Moran"
+                android:maxLines="1"
+                 android:ellipsize="end"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_dateTimeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_messageUserName"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_messageUserName"
+                android:textColor="@color/grey_6"
+                android:textSize="14sp"
+                android:text="Today, 10:20"
+                android:paddingTop="5dp"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_messageText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/viewMessageCount"
+                app:layout_constraintTop_toBottomOf="@+id/tv_messageUserName"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_messageUserName"
+                android:textColor="@color/grey_6"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="5dp"/>
+
+        <FrameLayout
+                android:id="@+id/viewMessageCount"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dateTimeText"
+                android:background="@drawable/circle_orange_bg"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="10dp">
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/tv_messageCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="10sp"
+                    android:text="20"
+                    android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

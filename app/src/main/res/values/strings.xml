@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Utalii Guides</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
     <string name="msg_no_internet">No internet connection, please check your internet connection and try again.</string>
@@ -36,9 +38,102 @@
     <string name="hint_enter_password">Enter password</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="text_save">Save</string>
-
-
-
+    <string name="enter_your_personal_details">Enter your personal details</string>
+    <string name="hint_enter_name">Enter name</string>
+    <string name="text_date_of_birth">Date of birth</string>
+    <string name="hint_email">Email</string>
+    <string name="button_sign_up">Sign up</string>
+    <string name="text_already_have_an_account">already have an account</string>
+    <string name="text_sign_in">Sign in</string>
+    <string name="choose_places_you_know_well">Choose Places you know well</string>
+    <string name="guide_profile_setup">Guide profile setup</string>
+    <string name="add_more">+ Add More</string>
+    <string name="language_you_know_well">Language you know well</string>
+    <string name="add_language_name">Add language name</string>
+    <string name="answer_some_simple_questions">Answer some simple questions</string>
+    <string name="question_one">Question One</string>
+    <string name="question_two">Question Two</string>
+    <string name="question_three">Question Three</string>
+    <string name="upload_documents">Upload Documents</string>
+    <string name="tourist_guide_identity_card">Tourist guide identity card</string>
+    <string name="upload_state_issued_legal_identity_card_here_your_name_and_photo_should_be_clearly_visible">Upload
+        state issued legal identity card here, your name and photo should be clearly visible.
+    </string>
+    <string name="enter_id_number_here">Enter ID number here</string>
+    <string name="front_text">Front</string>
+    <string name="back_text">Back</string>
+    <string name="local_id_proof">Local ID proof</string>
+    <string name="upload_legal_local_id_proof_make_sure_name_and_photo_clearly_visible">Upload legal local ID proof make
+        sure name and photo clearly visible
+    </string>
+    <string name="driving_licence">Driving licence</string>
+    <string name="upload_image_of_your_driving_licence_please_make_sure_your_name_clearly_visible">Upload image of your
+        driving licence, please make sure your name clearly visible.
+    </string>
+    <string name="upload">Upload</string>
+    <string name="home">Home</string>
+    <string name="today_s_trip">Today\'s Trip</string>
+    <string name="messages">Messages</string>
+    <string name="my_profile">My Profile</string>
+    <string name="payment_settings">Payment Settings</string>
+    <string name="app_settings">App Settings</string>
+    <string name="about_app">About App</string>
+    <string name="requests">Requests</string>
+    <string name="text_your_trips">Your trips</string>
+    <string name="you_don_t_have_any_request">You don\'t have any request</string>
+    <string name="no_request_available">No Request available</string>
+    <string name="text_arrival">Arrival</string>
+    <string name="text_departure">Departure</string>
+    <string name="people_in_this_pool">People in this pool</string>
+    <string name="create_new_tour">Create new tour</string>
+    <string name="after_private_type_tour_is_created_you_can_not_accept_pool_type_request">After private type tour is
+        created you can not accept pool type request
+    </string>
+    <string name="text_private_tour">Private Tour</string>
+    <string name="text_pool">Pool</string>
+    <string name="enter_no_of_people_in_pool">Enter no of people</string>
+    <string name="limit_number_of_people_in_pool">Limit number of people in pool</string>
+    <string name="text_notes">Notes</string>
+    <string name="description_for_this_pool">Description for this pool</string>
+    <string name="text_create">Create</string>
+    <string name="text_name">Name</string>
+    <string name="text_email_id">Email ID</string>
+    <string name="text_contact_details">Contact details</string>
+    <string name="hint_enter_email_id">Enter email id</string>
+    <string name="text_address">Address</string>
+    <string name="enter_your_address">Enter your address</string>
+    <string name="text_log_out">Log Out</string>
+    <string name="emergency_contact_number">Emergency contact number</string>
+    <string name="hint_enter_emergency_contact_number">Enter emergency contact number</string>
+    <string name="documents">Documents</string>
+    <string name="text_gallery">Gallery</string>
+    <string name="text_camera">Camera</string>
+    <string name="msg_incomplete_permission">Please allow all permissions requires to select profile image</string>
+    <string name="help_and_support">Help and Support</string>
+    <string name="text_notification">Notification</string>
+    <string name="text_this_week_s_earning">This week\'s earning</string>
+    <string name="text_withdraw">Withdraw</string>
+    <string name="click_to_add_button_to_add_your_bank_account_details">Click to add button to add your bank account
+        details
+    </string>
+    <string name="no_payment_account_found">No Payment Account Found</string>
+    <string name="your_bank_accounts">Your bank accounts</string>
+    <string name="you_can_add_multiple_bank_account_but_select_only_one_as_default_for_receiving_payments">You can add
+        multiple bank account but select only one as default for receiving payments
+    </string>
+    <string name="text_saved_as_default">saved as default</string>
+    <string name="text_account_in_name_of">Account in name of</string>
+    <string name="text_swift_code">Swift code</string>
+    <string name="text_account_number">Account number</string>
+    <string name="text_branch_number">Branch number</string>
+    <string name="hint_account_number">Account number</string>
+    <string name="hint_account_in_name_of">Account in name of</string>
+    <string name="hint_swift_code">Swift code</string>
+    <string name="hint_branch_number">Branch number</string>
+    <string name="please_make_sure_all_information_are_correct_as_it_will_used_to_for_payment_wrong_information_may_cause_problem_in_payment">
+        Please make sure all information are correct as it will used to for payment, wrong information may cause problem
+        in payment.
+    </string>
 
 
 </resources>

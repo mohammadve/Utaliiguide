@@ -4,15 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.utaliiguides.R
+import com.utaliiguides.viewModel.LoginViewModel
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     var showPassword: Boolean = false
 
+    var loginViewModel: LoginViewModel?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,39 +24,39 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_login)
 
 
+        initViews()
         tv_login_btn.setOnClickListener(this)
         tv_forgot_pass.setOnClickListener(this)
         iv_password_toggle.setOnClickListener(this)
         tv_signUp.setOnClickListener(this)
-
     }
 
-
-
-
-
+    private fun initViews()
+    {
+        loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+    }
 
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.tv_login_btn->{
-
+                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
             }
             R.id.tv_forgot_pass ->{
                 val intent = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
                 startActivity(intent)
-                finish()
-
             }
 
             R.id.iv_password_toggle->{
                 if (showPassword) {
                     et_password.transformationMethod = PasswordTransformationMethod.getInstance()
 
-                    iv_password_toggle.setImageResource(R.drawable.eye_hide)
+                    iv_password_toggle.setImageResource(R.mipmap.ic_eye_open)
                 } else {
 
                     et_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                    iv_password_toggle.setImageResource(R.drawable.eye)
+                    iv_password_toggle.setImageResource(R.mipmap.ic_eye_closed)
                 }
                 et_password.setSelection(et_password.text!!.length)
                 showPassword = !showPassword
@@ -60,12 +64,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tv_signUp->{
-
+                val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
+                startActivity(intent)
             }
-
-
-
-
         }
     }
 
@@ -90,5 +91,44 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         return true
     }
 
-
+//    private fun loginUser() {
+//
+//        //device_token = ""
+//
+//        Utils.hideSoftKeyboard(this)
+//
+//        if(checkValidation()){
+//            loginViewModel!!.loginUser(this, "", "", "").observe(this, androidx.lifecycle.Observer {
+//
+//                if(it != null && it.has("status") && it.get("status").asString.equals("1")){
+//
+//                    if (it.has("otp")){
+//
+//                        // Utils.showToast(this, getString(R.string.msg_otp_sent))
+//                        Utils.showToast(this, it.get("message").asString)
+//
+//                        otp = it.get("otp").asString
+//
+//                        //if (bottomSheetDialogFragment == null) {
+//                        bottomSheetDialogFragment = VerifyOTPDialogFragment.newInstance(otp, this)
+//                        bottomSheetDialogFragment!!.show(supportFragmentManager, "VerifyOTPDialogFragment")
+//                        //   }
+//
+//                    } else {
+//                        Utils.showToast(this, getString(R.string.msg_common_error))
+//                    }
+//
+//                }
+//                else {
+//                    if(it != null && it.has("message")){
+//                        Utils.showToast(this,it.get("message").asString)
+//                        Log.e("TAG","message status 0 SignUp  === "+it.get("message").asString)
+//                    }
+//
+//                }
+//            })
+//
+//        }
+//
+//    }
 }

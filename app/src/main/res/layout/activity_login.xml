@@ -23,7 +23,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/ic_logo"/>
+                android:src="@mipmap/ic_logo_login"/>
 
 
         <!--android:src="@drawable/grey_bg"-->
@@ -122,7 +122,7 @@
                             app:layout_constraintTop_toTopOf="@+id/et_password"
                             app:layout_constraintBottom_toBottomOf="@+id/et_password"
                             app:layout_constraintRight_toRightOf="@+id/et_password"
-                            android:src="@drawable/eye_hide"
+                            android:src="@mipmap/ic_eye_open"
                             android:padding="12dp"
                     />
 
@@ -197,11 +197,4 @@
                 android:text="@string/text_sign_up"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
 </androidx.core.widget.NestedScrollView>

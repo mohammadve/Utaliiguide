@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_bankIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@mipmap/ic_banks"
+        />
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_yourBankAccount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_bankIcon"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="@string/your_bank_accounts"
+        />
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_bankAccountDetailMsg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_yourBankAccount"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/grey_5"
+                android:textSize="14sp"
+                android:text="@string/please_make_sure_all_information_are_correct_as_it_will_used_to_for_payment_wrong_information_may_cause_problem_in_payment"
+        />
+
+        <com.utaliiguides.RobotoRegularEditText
+                android:id="@+id/et_accountHolderName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bankAccountDetailMsg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:textSize="14sp"
+                android:inputType="textCapWords"
+                android:singleLine="true"
+                android:padding="15dp"
+                android:hint="@string/hint_account_in_name_of"/>
+
+        <com.utaliiguides.RobotoRegularEditText
+                android:id="@+id/et_accountNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/et_accountHolderName"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:padding="15dp"
+                android:hint="@string/hint_account_number"/>
+
+        <com.utaliiguides.RobotoRegularEditText
+                android:id="@+id/et_swiftCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/et_accountNumber"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:padding="15dp"
+                android:hint="@string/hint_swift_code"/>
+
+        <com.utaliiguides.RobotoRegularEditText
+                android:id="@+id/et_branchCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/et_swiftCode"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:padding="15dp"
+                android:hint="@string/hint_branch_number"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,13 +4,13 @@ class ApiList {
     companion object {
 
         val BASE_URL = "http://3.13.3.42:8000/api/v1/"
-/*
-        const val SIGNUP_URL = "users/register"
-        const val VERIFY_OTP_URL = "users/register"
-        const val LOGIN_URL = "users/login"
-        const val FORGOT_PASS_URL = "users/forgetPassword"
-        const val UPDATE_PASS_URL = "user/update_password"
 
+        const val SIGN_UP_URL = "guides/guideregister"
+        const val VERIFY_OTP_URL = "users/register"
+        const val LOGIN_URL = "guides/login"
+        const val FORGOT_PASS_URL = "guides/forgetPassword"
+        const val UPDATE_PASS_URL = "guides/resetPassword"
+/*
         const val UPDATE_PROFILE_PIC_URL = "user/update_profile_pic"
         const val GET_CREDENTIALS_URL = "user/credantials?search=all"
         const val SENT_PATIENT_REFERAL_URL = "patient/patient_refferel"
@@ -41,7 +41,5 @@ class ApiList {
         var ABOUT_US_URL = BASE_URL + "user/about"
         var TERMS_CONDITION_URL = BASE_URL + "user/terms-condition"
 */
-
-
     }
 }

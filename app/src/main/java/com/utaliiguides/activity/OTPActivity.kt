@@ -9,18 +9,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.utaliiguides.R
 import com.utalli.helpers.Utils
+import kotlinx.android.synthetic.main.activity_forget_pass.*
 import kotlinx.android.synthetic.main.activity_otp.*
 
 class OTPActivity : AppCompatActivity(), View.OnClickListener {
     var OTP : String =" "
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otp)
 
+        toolbar_otp.title = ""
+        toolbar_otp.setNavigationIcon(R.drawable.arrow_back_black)
+        setSupportActionBar(toolbar_otp)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar_otp.setNavigationOnClickListener { finish() }
 
         tv_verify_btn.setOnClickListener(this)
         tv_resend_otp.setOnClickListener(this)

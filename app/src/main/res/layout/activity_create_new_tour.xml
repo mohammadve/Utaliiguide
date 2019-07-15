@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:id="@+id/coordinate_layout">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:fitsSystemWindows="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_compass_titlebar"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="right|bottom"
+            />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_tripDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="30dp"
+                    android:layout_gravity="bottom">
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/createNewTourMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/create_new_tour"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_collapsingToolbar_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="parallax"
+                    android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_cancel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_createNewTourMessage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@mipmap/ic_cancel_white"
+                />
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/tv_createNewTourMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_cancel1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/create_new_tour"
+                />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            android:visibility="visible"
+            android:layout_gravity="top"
+            android:elevation="4dp"
+            android:background="@android:color/transparent"
+    >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_tripDetailsToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"
+        >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_toolbarTitleText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@mipmap/ic_cancel_white"
+                    android:padding="10dp"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/tv_toolbarTitleText1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_cancel"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_cancel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:paddingLeft="10dp"
+                    android:text="@string/create_new_tour"
+                    android:maxLines="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp">
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/textTourCreationType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="@string/after_private_type_tour_is_created_you_can_not_accept_pool_type_request"
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+            <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTourCreationType"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="2"
+            >
+
+                <RadioButton
+                        android:id="@+id/privateTourRadioButton"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_private_tour"
+                        android:textColor="@color/colorBlack_2"
+                        android:textSize="16sp"
+                        android:checked="true"/>
+
+                <RadioButton
+                        android:id="@+id/poolTourRadioButton"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grey_6"
+                        android:text="@string/text_pool"
+                        android:textSize="16sp"
+                        android:checked="false"/>
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_startDateIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_startDateMsg"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/ic_start_date"/>
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tv_startDateMsg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_startDateIcon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv_startDateIcon"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_startDateIcon"
+                    android:text="Start date of pool"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tvStartDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@+id/tv_startDateMsg"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_startDateMsg"
+                    android:text="DD/MM/YYYY"
+                    android:padding="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_endDateIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_endDateMsg"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStartDate"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/ic_end_date"/>
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tv_endDateMsg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_endDateIcon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv_endDateIcon"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_endDateIcon"
+                    android:text="End date of pool"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tvEndDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@+id/tv_endDateMsg"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_endDateMsg"
+                    android:text="DD/MM/YYYY"
+                    android:padding="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"/>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_userLimitIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_limitOfUserMsg"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEndDate"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/ic_number_f_people"/>
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tv_limitOfUserMsg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_userLimitIcon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv_userLimitIcon"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_userLimitIcon"
+                    android:text="@string/limit_number_of_people_in_pool"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_noOfPeopleInPool"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@+id/tv_limitOfUserMsg"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_limitOfUserMsg"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:hint="@string/enter_no_of_people_in_pool"
+                    android:padding="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_notesIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_notesMsg"
+                    app:layout_constraintTop_toBottomOf="@+id/et_noOfPeopleInPool"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/ic_notes"/>
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tv_notesMsg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_notesIcon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv_notesIcon"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_notesIcon"
+                    android:text="@string/text_notes"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_noteMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@+id/tv_notesMsg"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_notesMsg"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:inputType="textCapSentences"
+                    android:singleLine="true"
+                    android:hint="@string/description_for_this_pool"
+                    android:padding="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:imeOptions="actionDone"/>
+
+            <!--<com.utaliiguides.RobotoMediumButton-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginBottom="10dp"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/et_noteMessage"-->
+                    <!--app:layout_constraintRight_toRightOf="parent"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--android:textColor="@color/colorWhite"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:text="@string/text_create"-->
+                    <!--android:background="@drawable/rect_green_bg"-->
+                    <!--android:enabled="false"/>-->
+
+            <com.utaliiguides.RobotoRegularTextView
+                    android:id="@+id/tvCreateTour"
+                    android:layout_width="0dp"
+                    android:background="@drawable/rect_green_bg"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/et_noteMessage"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:text="@string/text_create"
+                    android:textAllCaps="true"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

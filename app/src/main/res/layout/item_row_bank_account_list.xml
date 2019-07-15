@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp">
+
+    <!--app:cardElevation="2dp"-->
+    <!--app:cardCornerRadius="4dp"-->
+    <!--app:cardUseCompatPadding="true"-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+        <RadioButton
+                android:id="@+id/radioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_nameMsgText"
+                android:checked="false"
+        />
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_nameMsgText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/iv_accountSetAsDefault"
+                app:layout_constraintTop_toTopOf="@+id/radioBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/radioBtn"
+                app:layout_constraintLeft_toRightOf="@+id/radioBtn"
+                android:textSize="12sp"
+                android:textColor="@color/grey_5"
+                android:layout_marginLeft="10dp"
+                android:text="@string/text_account_in_name_of"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_accountHolderName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nameMsgText"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_nameMsgText"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="James L. Wagner"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_accountSetAsDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_nameMsgText"
+                app:layout_constraintLeft_toRightOf="@+id/tv_nameMsgText"
+                android:src="@mipmap/ic_default_account"
+        android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_saveAsDefaultMsg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@+id/iv_accountSetAsDefault"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_accountSetAsDefault"
+                app:layout_constraintTop_toBottomOf="@+id/iv_accountSetAsDefault"
+                android:textColor="@color/colorGreen"
+                android:textSize="12sp"
+                android:gravity="center_horizontal"
+                android:text="@string/text_saved_as_default"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_accountNumberMsgText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_accountHolderName"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_accountHolderName"
+                android:textSize="12sp"
+                android:textColor="@color/grey_5"
+                android:text="@string/text_account_number"
+                android:layout_marginTop="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_accountNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_accountNumberMsgText"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_accountNumberMsgText"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="1233254155"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_swiftCodeMsgText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_accountNumber"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_accountNumber"
+                android:textSize="12sp"
+                android:textColor="@color/grey_5"
+                android:text="@string/text_swift_code"
+                android:layout_marginTop="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_swiftCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_swiftCodeMsgText"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_swiftCodeMsgText"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="46656565"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_branchNoMsgText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/iv_deleteAccount"
+                app:layout_constraintTop_toBottomOf="@+id/tv_swiftCode"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_swiftCode"
+                android:textSize="12sp"
+                android:textColor="@color/grey_5"
+                android:text="@string/text_branch_number"
+                android:layout_marginTop="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_branchNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_branchNoMsgText"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_branchNoMsgText"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="931"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_deleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_branchNoMsgText"
+                app:layout_constraintLeft_toRightOf="@+id/tv_branchNoMsgText"
+                android:src="@drawable/ic_delete_account_grey"
+                android:padding="10dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/cl_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@color/grey_1"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>

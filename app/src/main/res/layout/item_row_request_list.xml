@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_requesterProfileImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_requesterName"
+                android:src="@mipmap/ic_profile_placeholder"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_requesterName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/tv_tripType"
+                app:layout_constraintLeft_toRightOf="@+id/iv_requesterProfileImage"
+                app:layout_constraintTop_toTopOf="@+id/iv_requesterProfileImage"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_requesterProfileImage"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="Tammie Moran"
+                android:maxLines="1"
+                android:layout_marginLeft="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_tripPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_requesterProfileImage"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_requesterProfileImage"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="$ 100.00"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_docIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/tv_tripPrice"
+                app:layout_constraintTop_toTopOf="@+id/tv_tripPrice"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_tripPrice"
+                android:src="@drawable/ic_dot_icon"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_tripType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/iv_docIcon"
+                app:layout_constraintTop_toTopOf="@+id/tv_tripPrice"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_tripPrice"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:text="Private"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_arrivalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_departureText"
+                app:layout_constraintTop_toBottomOf="@+id/iv_requesterProfileImage"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                android:text="@string/text_arrival"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_departureText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/tv_arrivalText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_requesterProfileImage"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                android:text="@string/text_departure"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_arrivalDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_departureDateText"
+                app:layout_constraintTop_toBottomOf="@+id/tv_arrivalText"
+                android:textColor="@color/colorBlack_2"
+                android:textSize="14sp"
+                android:text="12 May, 2019"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_departureDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/tv_arrivalDateText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_departureText"
+                android:textColor="@color/colorBlack_2"
+                android:textSize="14sp"
+                android:text="15 May, 2019"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_messageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_arrivalDateText"
+                android:drawableLeft="@mipmap/ic_msg_requests"
+                android:drawablePadding="15dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:text="Message"
+                android:textAllCaps="true"
+                android:paddingTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_acceptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_messageText"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_messageText"
+                android:textColor="@color/colorGreen"
+                android:textSize="16sp"
+                android:text="Accept"
+                android:textAllCaps="true"
+                android:paddingTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+        android:paddingLeft="10dp"/>
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_rejectText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/tv_acceptText"
+                app:layout_constraintTop_toTopOf="@+id/tv_messageText"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_messageText"
+                android:paddingTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:text="Reject"
+                android:textAllCaps="true"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

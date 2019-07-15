@@ -25,7 +25,5 @@ class MessagingService : FirebaseMessagingService() {
         super.onMessageReceived(remoteMessage)
 
         Utils.showLog("From: " + remoteMessage!!.getFrom())
-
     }
-
 }

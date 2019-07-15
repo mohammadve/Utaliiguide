@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/txt_personalDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="@string/upload_documents"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_identityNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_personalDetails"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_docIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/txtQuestionOne"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@mipmap/ic_id_sign_up"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_docIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:text="@string/tourist_guide_identity_card"
+                    android:paddingLeft="10dp"/>
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageDoc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_docIcon"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/upload_state_issued_legal_identity_card_here_your_name_and_photo_should_be_clearly_visible"
+                   />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_uploadFrontSide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMessageDoc"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_uploadBackSide"
+                    android:src="@mipmap/ic_document_placeholder"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_uploadBackSide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMessageDoc"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_uploadFrontSide"
+                    android:src="@mipmap/ic_document_placeholder"/>
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadFrontSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_uploadFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadFrontSide"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/front_text"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadBackSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_uploadBackSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadBackSide"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/back_text"
+            />
+
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_identityNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadFrontSide"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:textSize="14sp"
+                    android:layout_marginTop="30dp"
+                    android:maxLength="10"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/enter_id_number_here"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+                android:id="@+id/viewStateId"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@+id/cl_identityNo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@color/grey_1"
+                android:layout_marginTop="10dp"
+        />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_localIdProof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewStateId"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_localDocIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@mipmap/ic_id_sign_up"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_localDocIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:text="@string/local_id_proof"
+                    android:paddingLeft="10dp"/>
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageLocalDoc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_localDocIcon"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/upload_legal_local_id_proof_make_sure_name_and_photo_clearly_visible"
+            />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_uploadLocalIdFrontSide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMessageLocalDoc"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_uploadLocalIdBackSide"
+                    android:src="@mipmap/ic_document_placeholder"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_uploadLocalIdBackSide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMessageLocalDoc"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_uploadLocalIdFrontSide"
+                    android:src="@mipmap/ic_document_placeholder"/>
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageLocalFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadLocalIdFrontSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_uploadLocalIdFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadLocalIdFrontSide"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/front_text"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageLocalBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadLocalIdBackSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_uploadLocalIdBackSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadLocalIdBackSide"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/back_text"
+            />
+
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_localIDProofNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadLocalIdFrontSide"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:textSize="14sp"
+                    android:layout_marginTop="30dp"
+                    android:maxLength="10"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/enter_id_number_here"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+                android:id="@+id/viewLocalId"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@+id/cl_localIdProof"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@color/grey_1"
+                android:layout_marginTop="10dp"
+        />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_drivingLicence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewLocalId"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_drivingDocIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@mipmap/ic_id_sign_up"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_drivingDocIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:text="@string/driving_licence"
+                    android:paddingLeft="10dp"/>
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageDrivingDoc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_drivingDocIcon"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/upload_image_of_your_driving_licence_please_make_sure_your_name_clearly_visible"
+            />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_uploadDrivingFrontSide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMessageDrivingDoc"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_uploadDrivingBackSide"
+                    android:src="@mipmap/ic_document_placeholder"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_uploadDrivingBackSide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMessageDrivingDoc"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_uploadDrivingFrontSide"
+                    android:src="@mipmap/ic_document_placeholder"/>
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageDrivingFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadDrivingFrontSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_uploadDrivingFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadDrivingFrontSide"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/front_text"
+            />
+
+            <com.utaliiguides.RobotoMediumTextView
+                    android:id="@+id/txtMessageDrivingBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadDrivingBackSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_uploadDrivingBackSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadDrivingBackSide"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:text="@string/back_text"
+            />
+
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_drivingLicenceNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadDrivingFrontSide"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:textSize="14sp"
+                    android:layout_marginTop="30dp"
+                    android:maxLength="10"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/enter_id_number_here"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.utaliiguides.RobotoMediumButton
+                    android:id="@+id/btn_uploadDocument"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_drivingLicence"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="45dp"
+                    android:paddingLeft="45dp"
+                    android:paddingRight="45dp"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/rounded_rect_orange"
+                    android:text="@string/upload"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

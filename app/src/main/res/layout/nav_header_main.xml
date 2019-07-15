@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:src="@mipmap/ic_cancel_white"
+            android:padding="12dp"
+            android:layout_marginTop="30dp"
+    />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_guideName"
+        app:layout_constraintTop_toBottomOf="@+id/iv_Cancel"
+        android:src="@mipmap/ic_profile_placeholder"
+        android:layout_margin="20dp"
+
+    />
+
+    <com.utaliiguides.RobotoMediumTextView
+            android:id="@+id/tv_guideName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/profile_img"
+            app:layout_constraintTop_toTopOf="@+id/profile_img"
+            app:layout_constraintBottom_toTopOf="@+id/tv_guideAddress"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="Zachary R. Barr"/>
+
+    <com.utaliiguides.RobotoMediumTextView
+            android:id="@+id/tv_guideAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_guideName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_guideName"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_img"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:text="Sydney, Australia"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

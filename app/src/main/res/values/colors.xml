@@ -7,7 +7,12 @@
     <color name="colorBlack">#000000</color>
     <color name="colorBlack_2">#CC000000</color>
     <color name="light_green">#8BC34A</color>
+    <color name="colorGreen">#2E7D32</color>
     <color name="grey">#9A9A9A</color>
+    <color name="lightOrange">#33ff830c</color>
+
+    <color name="StepCountImageGrey">#cccccc</color>
+    <color name="StepCountLineGrey">#cccccc</color>
 
     <color name="light_grey">#F2F2F2</color>
     <color name="grey_5">#6B6868</color>
@@ -17,7 +22,6 @@
     <color name="grey_4">#e6e6e6</color>
     <color name="grey_6">#B3B1B1</color>
     <color name="color_primary_light">#F7FEFF</color>
-
 
     <color name="color_blue">#07A0C3</color>
 

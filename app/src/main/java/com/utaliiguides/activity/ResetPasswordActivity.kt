@@ -14,10 +14,6 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
     var showPassword: Boolean = false
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
@@ -29,9 +25,7 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar_recoveryPass.setNavigationOnClickListener { finish() }
 
-
         initViews()
-
     }
 
     private fun initViews() {
@@ -58,11 +52,11 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
                 if (showPassword) {
                     et_retype_password.transformationMethod = PasswordTransformationMethod.getInstance()
 
-                    iv_reTypePassword_toggle.setImageResource(R.drawable.eye_hide)
+                    iv_reTypePassword_toggle.setImageResource(R.mipmap.ic_eye_open)
                 } else {
 
                     et_retype_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                    iv_reTypePassword_toggle.setImageResource(R.drawable.eye)
+                    iv_reTypePassword_toggle.setImageResource(R.mipmap.ic_eye_closed)
                 }
                 et_retype_password.setSelection(et_retype_password.text!!.length)
                 showPassword = !showPassword
@@ -73,11 +67,11 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
                 if (showPassword) {
                     et_password.transformationMethod = PasswordTransformationMethod.getInstance()
 
-                    iv_password_toggle.setImageResource(R.drawable.eye_hide)
+                    iv_password_toggle.setImageResource(R.mipmap.ic_eye_open)
                 } else {
 
                     et_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                    iv_password_toggle.setImageResource(R.drawable.eye)
+                    iv_password_toggle.setImageResource(R.mipmap.ic_eye_closed)
                 }
                 et_password.setSelection(et_password.text!!.length)
                 showPassword = !showPassword
@@ -119,8 +113,5 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
         return true
     }
-
-
-
 
 }
