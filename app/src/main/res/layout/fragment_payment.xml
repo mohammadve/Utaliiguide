@@ -14,7 +14,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:padding="10dp"
-    android:background="@color/lightOrange">
+            android:background="@color/lightOrange">
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivPaymentIcon"

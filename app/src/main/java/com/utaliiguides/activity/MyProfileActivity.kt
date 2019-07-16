@@ -25,6 +25,7 @@ import com.utaliiguides.R
 import com.utaliiguides.activity.HomeActivity
 import com.utaliiguides.helper.ConstantFragmentName
 import com.utaliiguides.helper.RealPathUtil
+import com.utalli.helpers.AppPreference
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_profile.*
 import java.io.File
@@ -109,14 +110,13 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
     }
 
     override fun onClick(v: View?) {
-        when(v?.id)
-        {
-            R.id.iv_backArrow ->
-            {
+        when(v?.id) {
+
+            R.id.iv_backArrow -> {
                 finish()
             }
-            R.id.iv_image_picker ->
-            {
+
+            R.id.iv_image_picker -> {
                 if (checkPermission()){
                     openImagePickerMenu()
                 }
@@ -124,8 +124,8 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
                     requestPermission()
                 }
             }
-            R.id.iv_editProfile_icon ->
-            {
+
+            R.id.iv_editProfile_icon -> {
                 if (tv_save.visibility == View.VISIBLE) {
 
                     changeViewsEditProperty(false)
@@ -138,25 +138,41 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
                 }
                 changeViewsEditProperty(true)
             }
+
             R.id.tv_save ->{
                 tv_save.visibility = View.GONE
                 changeViewsEditProperty(false)
                 TransitionManager.beginDelayedTransition(cl_edit)
                 //uploadProileData()
             }
-            R.id.cl_helpAndSupport ->
-            {
+
+            R.id.cl_helpAndSupport -> {
                 val intent = Intent(this, HelpAndSupportActivity::class.java)
                 startActivity(intent)
             }
-            R.id.cl_documents ->
-            {
+
+            R.id.cl_documents -> {
             }
-            R.id.tv_logout ->
-            {
+
+            R.id.tv_logout -> {
+                logout()
+
             }
+
         }
     }
+
+    private fun logout() {
+        AppPreference.getInstance(this).setUserData("")
+        AppPreference.getInstance(this).setId(0)
+        AppPreference.getInstance(this).setAuthToken("")
+
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
+    }
+
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
 

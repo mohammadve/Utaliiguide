@@ -2,14 +2,18 @@ package com.utaliiguides.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.gson.JsonObject
 import com.utaliiguides.R
 import com.utaliiguides.viewModel.LoginViewModel
+import com.utalli.helpers.AppPreference
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -17,6 +21,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     var showPassword: Boolean = false
 
     var loginViewModel: LoginViewModel?= null
+    var device_token = "ksdfjksdhfkjhdsfkjhdskjfhkjsdhfkjhdf"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,18 +36,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         tv_signUp.setOnClickListener(this)
     }
 
-    private fun initViews()
-    {
+    private fun initViews() {
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
     }
 
     override fun onClick(v: View?) {
         when(v!!.id){
+
             R.id.tv_login_btn->{
-                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+
+               loginUser()
+
+            /*    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                 startActivity(intent)
-                finish()
+                finish()*/
             }
+
             R.id.tv_forgot_pass ->{
                 val intent = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
                 startActivity(intent)
@@ -131,4 +140,57 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 //        }
 //
 //    }
+
+
+    fun loginUser(){
+
+        if(checkValidation()){
+
+            loginViewModel!!.loginUser(this, et_mobileNumber.text.toString(),et_password.text.toString(), device_token).observe(this, Observer {
+
+                if(it != null && it.has("status") && it.get("status").asString.equals("1")){
+
+                    if (it.has("accessToken")) {
+                        AppPreference.getInstance(this).setAuthToken(it.get("accessToken").asString)
+                    }
+
+
+                    if(it.has("data") && it.get("data") is JsonObject){
+                        var dataObject = it.getAsJsonObject("data")
+
+                        if(dataObject.has("id")){
+                            AppPreference.getInstance(this).setId(dataObject.get("id").asInt)
+                        }
+
+                        AppPreference.getInstance(this).setUserData(it.get("data").toString())
+
+                        Utils.showToast(this, it.get("message").asString)
+
+                        Handler().postDelayed(Runnable {
+                            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }, 1000)
+
+                    }
+
+                }
+
+                else {
+                    if (it!= null && it.has("message")){
+                        Utils.showToast(this, it.get("message").asString)
+                    }
+                }
+
+            })
+
+        }
+
+
+    }
+
+
+
+
+
 }

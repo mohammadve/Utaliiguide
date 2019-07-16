@@ -9,19 +9,26 @@ import com.utaliiguides.R
 
 class PaymentAdapter (var mContext : Context) : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>() {
 
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentAdapter.PaymentViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_row_earning_payment,parent,false)
         return PaymentViewHolder(view)
     }
 
+
+
     override fun getItemCount(): Int {
         return 10
     }
+
 
     override fun onBindViewHolder(holder: PaymentAdapter.PaymentViewHolder, position: Int) {
 
         //holder.bindNotificationView()
     }
+
 
     class PaymentViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         //var tv_notification_title: TextView
@@ -36,4 +43,6 @@ class PaymentAdapter (var mContext : Context) : RecyclerView.Adapter<PaymentAdap
 
         }
     }
+
+
 }

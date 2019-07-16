@@ -4,15 +4,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.utaliiguides.R
+import com.utaliiguides.viewModel.ResetPasswordViewModel
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_reset_password.*
 
 class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
     var showPassword: Boolean = false
+    var resetPasswordViewModel: ResetPasswordViewModel ?= null
+
+    var otp: String = ""
+    var idd : Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +38,12 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun initViews() {
+
+        resetPasswordViewModel = ViewModelProviders.of(this).get(ResetPasswordViewModel::class.java)
+
+
+        idd = intent.getIntExtra("id",0)
+        otp = intent.getStringExtra("OTP")
 
         iv_password_toggle.setOnClickListener(this)
         iv_reTypePassword_toggle.setOnClickListener(this)
@@ -86,9 +101,34 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
 
     private fun resetPassword() {
-        val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
+
+        if(checkValidations()){
+
+            resetPasswordViewModel!!.resetPassword(this,et_password.text.toString(),otp,idd).observe(this, Observer {
+
+             if(it != null  && it.has("status") && it.get("status").asString.equals("1")){
+
+                 Utils.showToast(this, it.get("message").asString)
+
+                 val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
+                 startActivity(intent)
+                 finish()
+
+             }
+
+             else {
+
+                 if (it!= null && it.has("status")){
+                     Utils.showToast(this, it.get("message").asString)
+                     Log.e("TAG","message status 0 Login  === "+it.get("message").asString)
+                 }
+             }
+
+            })
+
+        }
+
+
     }
 
 

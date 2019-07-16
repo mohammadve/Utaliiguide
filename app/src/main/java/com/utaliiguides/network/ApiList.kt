@@ -9,7 +9,23 @@ class ApiList {
         const val VERIFY_OTP_URL = "users/register"
         const val LOGIN_URL = "guides/login"
         const val FORGOT_PASS_URL = "guides/forgetPassword"
-        const val UPDATE_PASS_URL = "guides/resetPassword"
+      //  const val UPDATE_PASS_URL = "guides/resetPassword"
+        const val RESET_PASS_URL = "guides/resetPassword"
+        const val ADD_BANK_DETAILS = "guides/addbankdetails"
+        const val ALREADY_ADDED_ACCOUNTS_DETAILS = "guides/bankdetailsList"
+        const val REMOVE_BANK_DETAILS = "guides/removeBankdetails"
+
+
+
+
+
+
+
+
+
+
+
+
 /*
         const val UPDATE_PROFILE_PIC_URL = "user/update_profile_pic"
         const val GET_CREDENTIALS_URL = "user/credantials?search=all"

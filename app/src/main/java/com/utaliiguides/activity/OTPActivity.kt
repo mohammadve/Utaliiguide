@@ -4,16 +4,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.utaliiguides.R
+import com.utaliiguides.viewModel.ForgetPassViewModel
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_forget_pass.*
 import kotlinx.android.synthetic.main.activity_otp.*
 
 class OTPActivity : AppCompatActivity(), View.OnClickListener {
+
+    var idd : Int ?=null
     var OTP : String =" "
+    var mobileNumber : String =""
+
+    var forgetPassViewModel: ForgetPassViewModel? = null
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +45,12 @@ class OTPActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
+
+        forgetPassViewModel = ViewModelProviders.of(this).get(ForgetPassViewModel::class.java)
+
+        idd = intent.getIntExtra("id",0)
+        OTP = intent.getStringExtra("OTP")
+        mobileNumber = intent.getStringExtra("mobileNumber")
 
         getEditText()
 
@@ -134,11 +151,54 @@ class OTPActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.tv_verify_btn->{
-                val intent = Intent(this, ResetPasswordActivity::class.java)
-                startActivity(intent)
+                if(checkValidations()){
+                    val intent = Intent(this, ResetPasswordActivity::class.java)
+                    intent.putExtra("id",idd)
+                    intent.putExtra("OTP", OTP)
+                    Log.e("TAG"," otpp otp screen == "+OTP)
+                    Log.e("TAG"," id otp screen == "+idd)
+                    startActivity(intent)
+
+                }
+
+             /*   val intent = Intent(this, ResetPasswordActivity::class.java)
+                startActivity(intent)*/
             }
 
             R.id.tv_resend_otp->{
+
+                if(Utils.isInternetAvailable(this)){
+
+                    forgetPassViewModel!!.forgetPass(this,mobileNumber).observe(this, Observer {
+
+                        if (it != null && it.has("status") && it.get("status").asString.equals("1")) {
+
+                            if(it.has("data")){
+                                var dataObject = it.getAsJsonObject("data")
+
+                                if (dataObject.has("id") && dataObject.has("otp")) {
+                                    OTP = ""
+                                    Utils.showToast(this, it.get("message").asString)
+                                    idd = dataObject.get("id").asInt
+                                    OTP = dataObject.get("otp").asString
+                                    Log.e("TAG"," resend otpp otp screen == "+OTP)
+
+                                } else {
+
+                                    Utils.showToast(this, getString(R.string.msg_common_error))
+                                }
+
+                            }
+
+                        }
+
+
+                    })
+
+                }
+                else {
+                    Utils.showToast(this, resources.getString(R.string.msg_no_internet))
+                }
 
             }
 

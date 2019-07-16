@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_payment.*
 
 class PaymentFragment : Fragment() {
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView()
@@ -25,8 +26,9 @@ class PaymentFragment : Fragment() {
         updateToolbar()
         return view
     }
-    private fun updateToolbar()
-    {
+
+
+    private fun updateToolbar() {
         (activity as HomeActivity).setToolbarTitle(ConstantFragmentName.PAYMENT_FRAGMENT)
         (activity as HomeActivity).setToolbarMenuVisibility(true)
         (activity as HomeActivity).setToolbarBackVisibility(false)
@@ -34,10 +36,10 @@ class PaymentFragment : Fragment() {
         (activity as HomeActivity).setToolbarPaymentSettingVisibility(true)
     }
 
-    private fun initView()
-    {
+    private fun initView() {
         receivedPaymentRV.setHasFixedSize(true)
         receivedPaymentRV.layoutManager = LinearLayoutManager(activity)
         receivedPaymentRV.adapter = PaymentAdapter(activity!!)
     }
+
 }

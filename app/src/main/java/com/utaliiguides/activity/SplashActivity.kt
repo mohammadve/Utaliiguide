@@ -9,10 +9,14 @@ import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.utaliiguides.R
+import com.utalli.helpers.AppPreference
+import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_splash.*
 
 
 class SplashActivity : AppCompatActivity(), View.OnClickListener {
+
+    var preference: AppPreference? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,17 +24,41 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_splash)
 
         tv_getStarted.setOnClickListener(this)
+        preference = AppPreference.getInstance(this)
+
+
+
 
         Handler().postDelayed(Runnable {
 
-            var transition = Slide(Gravity.BOTTOM)
-            transition.setDuration(500)
-            TransitionManager.beginDelayedTransition(rl_splash_main, transition)
-            tv_getStarted.visibility = View.VISIBLE
-            tv_learnMore.visibility = View.VISIBLE
+
+            if(preference!!.getAuthToken().equals("")){
+
+                var transition = Slide(Gravity.BOTTOM)
+                transition.setDuration(500)
+                TransitionManager.beginDelayedTransition(rl_splash_main, transition)
+                tv_getStarted.visibility = View.VISIBLE
+                tv_learnMore.visibility = View.VISIBLE
+            }
+            else{
+
+                if(!Utils.isInternetAvailable(this)){
+                    Utils.showToast(this, resources.getString(R.string.msg_no_internet))
+                }else{
+                    val intent = Intent(this@SplashActivity, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+
+
 
         }, 1000)
+
     }
+
+
+
 
     override fun onClick(v: View?) {
         when (v!!.id) {
