@@ -66,5 +66,13 @@ interface ApiService {
         @Field("accountId") accountId : Int
     ): Call<JsonObject>
 
+    @POST(ApiList.SET_DEFAULT_BANK_PAYMENT)
+    @FormUrlEncoded
+    fun setBankDefaultPayment(
+        @Header("x-access-token") token: String,
+        @Field("accountId") accountId : Int,
+        @Field("guideId") guideId : Int
+    ): Call<JsonObject>
+
 
 }

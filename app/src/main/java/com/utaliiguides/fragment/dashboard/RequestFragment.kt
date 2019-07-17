@@ -23,8 +23,13 @@ class RequestFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_request_list, container, false)
         updateToolbar()
+
+        getTourRequestList()
+
         return view
     }
+
+
 
     private fun updateToolbar()
     {
@@ -41,4 +46,16 @@ class RequestFragment : Fragment() {
         requestsRecyclerView.layoutManager = LinearLayoutManager(activity)
         requestsRecyclerView.adapter = RequestsListAdapter(activity!!)
     }
+
+
+    private fun getTourRequestList() {
+
+        
+
+    }
+
+
+
+
+
 }

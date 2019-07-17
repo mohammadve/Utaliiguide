@@ -15,6 +15,7 @@ import com.utaliiguides.viewModel.AddBankAccountViewModel
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.fragment_add_bank_account.*
 
+
 class AddBankAccountFragment : Fragment(),View.OnClickListener {
 
     var addBankAccountViewModel: AddBankAccountViewModel ?= null
@@ -58,7 +59,7 @@ class AddBankAccountFragment : Fragment(),View.OnClickListener {
 
         when(v!!.id){
             R.id.tv_cancle->{
-
+                (activity as HomeActivity).setDisplayFragment(10)
             }
 
             R.id.btn_save ->{
@@ -77,13 +78,8 @@ class AddBankAccountFragment : Fragment(),View.OnClickListener {
                 else {
                     addBankAccountDetails()
                 }
-
-
             }
-
-
         }
-
     }
 
 
@@ -98,16 +94,12 @@ class AddBankAccountFragment : Fragment(),View.OnClickListener {
 
             if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
                 Utils.showToast(activity!!, it.get("message").asString)
-
+                (activity as HomeActivity).setDisplayFragment(10)
             }
             else {
                 Utils.showToast(activity!! , getString(R.string.msg_common_error))
             }
-
-
         })
-
-
     }
 
 

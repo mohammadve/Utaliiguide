@@ -5,11 +5,5 @@ import com.utaliiguides.models.GetBankDetailsModel
 interface PaymentRemoveBankDetailsCallBack {
 
 
-    fun removeBankDetails(itemDetails : GetBankDetailsModel)
-
-
-
-
-
-
+    fun removeBankDetails(position : Int, message: String)
 }

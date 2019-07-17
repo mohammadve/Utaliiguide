@@ -10,6 +10,7 @@
     <color name="colorGreen">#2E7D32</color>
     <color name="grey">#9A9A9A</color>
     <color name="lightOrange">#33ff830c</color>
+    <color name="redColor">#FFFF0B0B</color>
 
     <color name="StepCountImageGrey">#cccccc</color>
     <color name="StepCountLineGrey">#cccccc</color>

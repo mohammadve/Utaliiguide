@@ -14,6 +14,7 @@ class ApiList {
         const val ADD_BANK_DETAILS = "guides/addbankdetails"
         const val ALREADY_ADDED_ACCOUNTS_DETAILS = "guides/bankdetailsList"
         const val REMOVE_BANK_DETAILS = "guides/removeBankdetails"
+        const val SET_DEFAULT_BANK_PAYMENT = "guides/setdefaultbank"
 
 
 

@@ -10,6 +10,7 @@ class GetBankDetailsModel (
     var account_no : String,
     var account_swift_code : String,
     var branch_no : String,
-    var account_defualt : String
+    var account_defualt : Boolean,
+    var isSelected: Boolean
 
 ):Serializable
