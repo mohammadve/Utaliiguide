@@ -13,6 +13,15 @@
     <string name="msg_common_error">Ooppss.. something went wrong, please try again.</string>
 
 
+    <string name="msg_empty_user_name">Please enter your name.</string>
+    <string name="msg_empty_gender_type">Please select your gender.</string>
+    <string name="msg_empty_dob">Please enter your date of birth.</string>
+    <string name="msg_empty_email_id">Please enter your email id.</string>
+    <string name="msg_invalid_email_id">Please enter valid email id.</string>
+    <string name="msg_empty_confirm_password">Please enter your confirm password.</string>
+    <string name="msg_password_does_not_match">Password does not match with confirm password.</string>
+
+
 
 
     <string name="text_get_started">GET STARTED</string>

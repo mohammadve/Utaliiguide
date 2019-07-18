@@ -9,6 +9,10 @@ class ApiList {
         const val VERIFY_OTP_URL = "users/register"
         const val LOGIN_URL = "guides/login"
         const val FORGOT_PASS_URL = "guides/forgetPassword"
+        const val UPDATE_PASS_URL = "guides/resetPassword"
+
+        const val SEARCH_LOCATION = "deshboard/searchLocation"
+        const val GET_STATE_BY_COUNTRY = "deshboard/getstateBycountry"
       //  const val UPDATE_PASS_URL = "guides/resetPassword"
         const val RESET_PASS_URL = "guides/resetPassword"
         const val ADD_BANK_DETAILS = "guides/addbankdetails"

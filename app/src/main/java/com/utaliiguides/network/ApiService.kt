@@ -19,6 +19,19 @@ interface ApiService {
         @Field("device_token") device_token: String
     ): Call<JsonObject>
 
+    @POST(ApiList.SEARCH_LOCATION)
+    @FormUrlEncoded
+    fun getCountries(
+        @Field("countryname") countryName: String
+    ): Call<JsonObject>
+
+    @POST(ApiList.GET_STATE_BY_COUNTRY)
+    @FormUrlEncoded
+    fun getStates(
+        @Header("x-access-token") token: String,
+        @Field("contryid") contryid: Int
+    ): Call<JsonObject>
+
 
 
     @POST(ApiList.FORGOT_PASS_URL)

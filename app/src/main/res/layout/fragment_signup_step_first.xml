@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+android:fillViewport="true">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -14,7 +16,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
+                android:layout_marginRight="15dp"
+        android:paddingBottom="20dp">
 
             <com.utaliiguides.RobotoMediumTextView
                     android:id="@+id/txt_personalDetails"
@@ -159,26 +162,24 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
             <com.utaliiguides.RobotoRegularEditText
                     android:id="@+id/et_dateOfBirth"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_gender"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_calendar_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_gender"
                     android:backgroundTint="@color/colorPrimary"
                     android:textCursorDrawable="@color/colorPrimary"
                     android:textSize="14sp"
                     android:focusable="false"
                     android:editable="false"
                     android:singleLine="true"
-                    android:hint="@string/text_date_of_birth"/>
+                    android:hint="@string/text_date_of_birth"
+                    tools:layout_editor_absoluteY="157dp"/>
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_calendar_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -295,4 +296,4 @@
                     android:textAllCaps="true"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

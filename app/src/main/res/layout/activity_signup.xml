@@ -13,116 +13,99 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
+            android:id="@+id/ll_stepCounter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:layout_below="@+id/toolbar_signUp">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_signUp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="30dp">
+                android:id="@+id/ll_stepCountFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg_light_orange"
+                android:gravity="center">
 
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-
-                <LinearLayout
-                        android:id="@+id/ll_stepCountFirst"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circle_bg_light_orange"
-                        android:gravity="center">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_stepFirst"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:src="@mipmap/ic_personal_on"
-                            android:layout_gravity="center"/>
-
-                </LinearLayout>
-                <View
-                        android:id="@+id/viewStepFirst"
-                        android:layout_width="0dp"
-                      android:layout_height="5dp"
-                      android:background="@color/StepCountLineGrey"
-                      android:layout_weight="1"/>
-
-                <LinearLayout
-                        android:id="@+id/ll_stepCountTwo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circle_bg_gray"
-                        android:gravity="center">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_stepTwo"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:src="@mipmap/ic_places_off"
-                            android:layout_gravity="center"/>
-
-                </LinearLayout>
-                <View android:id="@+id/viewStepTwo"
-                      android:layout_width="0dp"
-                      android:layout_height="5dp"
-                      android:background="@color/StepCountLineGrey"
-                      android:layout_weight="1"/>
-
-                <LinearLayout
-                        android:id="@+id/ll_stepCountThree"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circle_bg_gray"
-                        android:gravity="center">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_stepThree"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:src="@mipmap/ic_document_off"
-                            android:layout_gravity="center"/>
-
-                </LinearLayout>
-                <View android:id="@+id/viewStepThree"
-                      android:layout_width="0dp"
-                      android:layout_height="5dp"
-                      android:background="@color/StepCountLineGrey"
-                      android:layout_weight="1"/>
-
-                <LinearLayout
-                        android:id="@+id/ll_stepCountFour"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circle_bg_gray"
-                        android:gravity="center">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_stepFour"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:src="@mipmap/ic_qa_off"
-                            android:layout_gravity="center"/>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <FrameLayout
-                    android:id="@+id/layoutContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_stepFirst"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@mipmap/ic_personal_on"
+                    android:layout_gravity="center"/>
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        <View
+                android:id="@+id/viewStepFirst"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:background="@color/StepCountLineGrey"
+                android:layout_weight="1"/>
 
+        <LinearLayout
+                android:id="@+id/ll_stepCountTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg_gray"
+                android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_stepTwo"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@mipmap/ic_places_off"
+                    android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <View android:id="@+id/viewStepTwo"
+              android:layout_width="0dp"
+              android:layout_height="5dp"
+              android:background="@color/StepCountLineGrey"
+              android:layout_weight="1"/>
+
+        <LinearLayout
+                android:id="@+id/ll_stepCountThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg_gray"
+                android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_stepThree"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@mipmap/ic_document_off"
+                    android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <View android:id="@+id/viewStepThree"
+              android:layout_width="0dp"
+              android:layout_height="5dp"
+              android:background="@color/StepCountLineGrey"
+              android:layout_weight="1"/>
+
+        <LinearLayout
+                android:id="@+id/ll_stepCountFour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg_gray"
+                android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_stepFour"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@mipmap/ic_qa_off"
+                    android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+            android:id="@+id/layoutContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll_stepCounter"/>
 </RelativeLayout>

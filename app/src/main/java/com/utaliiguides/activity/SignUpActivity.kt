@@ -31,7 +31,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
         displayFragment(1)
     }
 
-
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.tv_sign_in->{

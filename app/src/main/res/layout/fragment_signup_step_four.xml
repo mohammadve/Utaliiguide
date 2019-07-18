@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginRight="15dp"
+            android:paddingBottom="20dp">
 
         <com.utaliiguides.RobotoMediumTextView
                 android:id="@+id/txt_personalDetails"
@@ -46,39 +52,39 @@
                     android:textSize="16sp"
                     android:text="@string/question_one"/>
 
-        <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_questionOne"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtQuestionOne"
-                android:paddingLeft="5dp"
-                android:paddingRight="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:scrollbars="none"
-                android:background="@null"
-                android:dropDownVerticalOffset="30dp">
+            <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_questionOne"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuestionOne"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:scrollbars="none"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="30dp">
 
-        </androidx.appcompat.widget.AppCompatSpinner>
+            </androidx.appcompat.widget.AppCompatSpinner>
 
-        <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@+id/spinner_questionOne"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner_questionOne"
-                app:layout_constraintRight_toRightOf="@+id/spinner_questionOne"
-                android:src="@mipmap/ic_dropdown"
-                android:padding="12dp"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/spinner_questionOne"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinner_questionOne"
+                    app:layout_constraintRight_toRightOf="@+id/spinner_questionOne"
+                    android:src="@mipmap/ic_dropdown"
+                    android:padding="12dp"/>
 
-        <View android:layout_width="0dp"
-              android:layout_height="1dp"
-              android:background="@color/colorPrimary"
-              app:layout_constraintLeft_toLeftOf="parent"
-              app:layout_constraintRight_toRightOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/spinner_questionOne"/>
+            <View android:layout_width="0dp"
+                  android:layout_height="1dp"
+                  android:background="@color/colorPrimary"
+                  app:layout_constraintLeft_toLeftOf="parent"
+                  app:layout_constraintRight_toRightOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/spinner_questionOne"/>
 
             <com.utaliiguides.RobotoMediumTextView
                     android:id="@+id/txtQuestionTwo"
@@ -92,39 +98,39 @@
                     android:textSize="16sp"
                     android:text="@string/question_two"/>
 
-        <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_questionTwo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtQuestionTwo"
-                android:paddingLeft="5dp"
-                android:paddingRight="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:scrollbars="none"
-                android:background="@null"
-                android:dropDownVerticalOffset="30dp">
+            <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_questionTwo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuestionTwo"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:scrollbars="none"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="30dp">
 
-        </androidx.appcompat.widget.AppCompatSpinner>
+            </androidx.appcompat.widget.AppCompatSpinner>
 
-        <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@+id/spinner_questionTwo"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner_questionTwo"
-                app:layout_constraintRight_toRightOf="@+id/spinner_questionTwo"
-                android:src="@mipmap/ic_dropdown"
-                android:padding="12dp"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/spinner_questionTwo"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinner_questionTwo"
+                    app:layout_constraintRight_toRightOf="@+id/spinner_questionTwo"
+                    android:src="@mipmap/ic_dropdown"
+                    android:padding="12dp"/>
 
-        <View android:layout_width="0dp"
-              android:layout_height="1dp"
-              android:background="@color/colorPrimary"
-              app:layout_constraintLeft_toLeftOf="parent"
-              app:layout_constraintRight_toRightOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/spinner_questionTwo"/>
+            <View android:layout_width="0dp"
+                  android:layout_height="1dp"
+                  android:background="@color/colorPrimary"
+                  app:layout_constraintLeft_toLeftOf="parent"
+                  app:layout_constraintRight_toRightOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/spinner_questionTwo"/>
 
 
             <com.utaliiguides.RobotoMediumTextView
@@ -174,20 +180,20 @@
                   app:layout_constraintRight_toRightOf="parent"
                   app:layout_constraintTop_toBottomOf="@+id/spinner_questionThree"/>
 
-        <com.utaliiguides.RobotoMediumButton
-                android:id="@+id/btn_saveQuesAns"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_questionThree"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="45dp"
-                android:paddingLeft="45dp"
-                android:paddingRight="45dp"
-                android:textColor="@color/colorWhite"
-                android:background="@drawable/rounded_rect_orange"
-                android:text="@string/text_save"/>
+            <com.utaliiguides.RobotoMediumButton
+                    android:id="@+id/btn_saveQuesAns"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_questionThree"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="45dp"
+                    android:paddingLeft="45dp"
+                    android:paddingRight="45dp"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/rounded_rect_orange"
+                    android:text="@string/text_save"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

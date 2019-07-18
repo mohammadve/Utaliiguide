@@ -1,188 +1,442 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:zhy="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp">
+    android:fillViewport="true">
 
-        <com.utaliiguides.RobotoMediumTextView
-                android:id="@+id/txt_personalDetails"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:text="@string/guide_profile_setup"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_personalDetails"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp">
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_countrySelection"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:scrollbars="none"
-                    android:background="@null"
-                    android:dropDownVerticalOffset="30dp">
-
-            </androidx.appcompat.widget.AppCompatSpinner>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@+id/spinner_countrySelection"
-                    app:layout_constraintBottom_toBottomOf="@+id/spinner_countrySelection"
-                    app:layout_constraintRight_toRightOf="@+id/spinner_countrySelection"
-                    android:src="@mipmap/ic_dropdown"
-                    android:padding="12dp"/>
-
-            <View android:layout_width="0dp"
-                  android:layout_height="1dp"
-                  android:background="@color/colorPrimary"
-                  app:layout_constraintLeft_toLeftOf="parent"
-                  app:layout_constraintRight_toRightOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/spinner_countrySelection"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
 
             <com.utaliiguides.RobotoMediumTextView
-                    android:id="@+id/txt_messageChoosePlaces"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_countrySelection"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:text="@string/choose_places_you_know_well"/>
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_chooseState"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_messageChoosePlaces"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:scrollbars="none"
-                    android:background="@null"
-                    android:dropDownVerticalOffset="30dp">
-
-            </androidx.appcompat.widget.AppCompatSpinner>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@+id/spinner_chooseState"
-                    app:layout_constraintBottom_toBottomOf="@+id/spinner_chooseState"
-                    app:layout_constraintRight_toRightOf="@+id/spinner_chooseState"
-                    android:src="@mipmap/ic_dropdown"
-                    android:padding="12dp"/>
-
-            <View android:layout_width="0dp"
-                  android:layout_height="1dp"
-                  android:background="@color/colorPrimary"
-                  app:layout_constraintLeft_toLeftOf="parent"
-                  app:layout_constraintRight_toRightOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/spinner_chooseState"/>
-
-            <com.utaliiguides.RobotoRegularTextView
-                    android:id="@+id/tv_addMore"
+                    android:id="@+id/txt_personalDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_chooseState"
-                    android:padding="12dp"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorPrimary"
-                    android:alpha=".8"
-                    android:textSize="20sp"
-                    android:text="@string/add_more"
-                    android:textAllCaps="true"/>
-
-            <com.utaliiguides.RobotoMediumTextView
-                    android:id="@+id/tv_languageKnowWell"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_addMore"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
-                    android:text="@string/language_you_know_well"/>
+                    android:text="@string/guide_profile_setup"/>
 
-            <com.utaliiguides.RobotoRegularEditText
-                    android:id="@+id/et_languageName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_languageKnowWell"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:singleLine="true"
-                    android:inputType="textCapSentences"
-                    android:textColorHint="@color/grey"
-                    android:textCursorDrawable="@drawable/cursor_drawable"
-                    android:textSize="14sp"
-                    android:layout_marginTop="15dp"
-                    android:hint="@string/add_language_name"/>
-
-            <com.utaliiguides.RobotoRegularTextView
-                    android:id="@+id/tv_addMoreLanguage"
+            <LinearLayout
+                    android:id="@+id/clCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_languageName"
-                    android:padding="12dp"
-                    android:textColor="@color/colorPrimary"
-                    android:alpha=".8"
-                    android:textSize="20sp"
-                    android:text="@string/add_more"
-                    android:textAllCaps="true"/>
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
 
-            <com.utaliiguides.RobotoMediumButton
-                    android:id="@+id/btn_save"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_addMoreLanguage"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="30dp"
-                    android:paddingLeft="45dp"
-                    android:paddingRight="45dp"
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/rounded_rect_orange"
-                    android:text="@string/text_save"/>
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinner_countrySelection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:scrollbars="none"
+                            android:background="@null"
+                            android:dropDownVerticalOffset="30dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="10dp">
+
+                    </androidx.appcompat.widget.AppCompatSpinner>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_dropdown"
+                            android:padding="12dp"
+                            android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"/>
+
+                </RelativeLayout>
+
+                <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"/>
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/txt_messageChoosePlaces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:text="@string/choose_places_you_know_well"/>
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_chooseState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="10dp"
+                        android:scrollbars="none"
+                        android:background="@null"
+                        android:dropDownVerticalOffset="30dp">
+
+                </androidx.appcompat.widget.AppCompatSpinner>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_dropdown"
+                        android:padding="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@color/colorPrimary"
+                      />
+
+                <com.utaliiguides.RobotoRegularTextView
+                        android:id="@+id/tv_addMoreState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorPrimary"
+                        android:alpha=".8"
+                        android:textSize="16sp"
+                        android:text="@string/add_more"
+                        android:textAllCaps="true"/>
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                        android:id="@+id/mStateFlowLayout"
+                        zhy:max_select="-1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+                <!--<androidx.recyclerview.widget.RecyclerView-->
+                <!--android:id="@+id/rv_selectedStates"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/tv_addMoreState"-->
+                <!--app:layout_constraintBottom_toTopOf="@+id/tv_languageKnowWell"-->
+                <!--android:visibility="visible"-->
+                <!--&gt;-->
+                <!--</androidx.recyclerview.widget.RecyclerView>-->
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/tv_languageKnowWell"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:text="@string/language_you_know_well"/>
+
+                <com.utaliiguides.RobotoRegularEditText
+                        android:id="@+id/et_languageName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:singleLine="true"
+                        android:inputType="textCapSentences"
+                        android:textColorHint="@color/grey"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:textSize="14sp"
+                        android:layout_marginTop="15dp"
+                        android:hint="@string/add_language_name"/>
+
+                <com.utaliiguides.RobotoRegularTextView
+                        android:id="@+id/tv_addMoreLanguage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:textColor="@color/colorPrimary"
+                        android:alpha=".8"
+                        android:textSize="16sp"
+                        android:text="@string/add_more"
+                        android:textAllCaps="true"/>
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                        android:id="@+id/mAddMoreLanguageFlowLayout"
+                        zhy:max_select="-1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+
+                <!--<androidx.recyclerview.widget.RecyclerView-->
+                        <!--android:id="@+id/rv_addedLanguage"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                        <!--app:layout_constraintRight_toRightOf="parent"-->
+                        <!--app:layout_constraintTop_toBottomOf="@+id/tv_addMoreLanguage"-->
+                        <!--android:visibility="gone">-->
+                <!--</androidx.recyclerview.widget.RecyclerView>-->
+
+                <com.utaliiguides.RobotoMediumButton
+                        android:id="@+id/btn_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingLeft="45dp"
+                        android:paddingRight="45dp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/rounded_rect_orange"
+                        android:text="@string/text_save"
+                android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+
+        <!--<?xml version="1.0" encoding="utf-8"?>-->
+        <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+        <!--xmlns:zhy="http://schemas.android.com/apk/res-auto"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+
+        <!--<androidx.core.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:fillViewport="true">-->
+
+
+        <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginRight="15dp">-->
+
+        <!--<com.utaliiguides.RobotoMediumTextView-->
+        <!--android:id="@+id/txt_personalDetails"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/clCountry"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="@string/guide_profile_setup"/>-->
+
+        <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--android:id="@+id/clCountry"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/txt_personalDetails"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--android:layout_marginLeft="20dp">-->
+
+        <!--<androidx.appcompat.widget.AppCompatSpinner-->
+        <!--android:id="@+id/spinner_countrySelection"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:scrollbars="none"-->
+        <!--android:background="@null"-->
+        <!--android:dropDownVerticalOffset="30dp"-->
+        <!--android:paddingTop="15dp"-->
+        <!--android:paddingBottom="10dp">-->
+
+        <!--</androidx.appcompat.widget.AppCompatSpinner>-->
+
+        <!--<androidx.appcompat.widget.AppCompatImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/spinner_countrySelection"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/spinner_countrySelection"-->
+        <!--app:layout_constraintRight_toRightOf="@+id/spinner_countrySelection"-->
+        <!--android:src="@mipmap/ic_dropdown"-->
+        <!--android:padding="12dp"/>-->
+
+        <!--<View-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinner_countrySelection"/>-->
+
+        <!--<com.utaliiguides.RobotoMediumTextView-->
+        <!--android:id="@+id/txt_messageChoosePlaces"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/view"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/spinner_chooseState"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="@string/choose_places_you_know_well"/>-->
+
+        <!--<androidx.appcompat.widget.AppCompatSpinner-->
+        <!--android:id="@+id/spinner_chooseState"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:paddingTop="15dp"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/txt_messageChoosePlaces"-->
+        <!--android:scrollbars="none"-->
+        <!--android:background="@null"-->
+        <!--android:dropDownVerticalOffset="30dp">-->
+
+        <!--</androidx.appcompat.widget.AppCompatSpinner>-->
+
+        <!--<androidx.appcompat.widget.AppCompatImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/spinner_chooseState"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/spinner_chooseState"-->
+        <!--app:layout_constraintRight_toRightOf="@+id/spinner_chooseState"-->
+        <!--android:src="@mipmap/ic_dropdown"-->
+        <!--android:padding="12dp"/>-->
+
+        <!--<View android:layout_width="0dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinner_chooseState"/>-->
+
+        <!--<com.utaliiguides.RobotoRegularTextView-->
+        <!--android:id="@+id/tv_addMoreState"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinner_chooseState"-->
+        <!--android:padding="12dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:alpha=".8"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="@string/add_more"-->
+        <!--android:textAllCaps="true"/>-->
+
+        <!--<com.zhy.view.flowlayout.TagFlowLayout-->
+        <!--android:id="@+id/mStateFlowLayout"-->
+        <!--zhy:max_select="-1"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_addMoreState">-->
+        <!--</com.zhy.view.flowlayout.TagFlowLayout>-->
+
+        <!--&lt;!&ndash;<androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/rv_selectedStates"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:layout_constraintRight_toRightOf="parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@+id/tv_addMoreState"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:layout_constraintBottom_toTopOf="@+id/tv_languageKnowWell"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:visibility="visible"&ndash;&gt;-->
+        <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;</androidx.recyclerview.widget.RecyclerView>&ndash;&gt;-->
+
+        <!--<com.utaliiguides.RobotoMediumTextView-->
+        <!--android:id="@+id/tv_languageKnowWell"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/mStateFlowLayout"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="@string/language_you_know_well"/>-->
+
+        <!--<com.utaliiguides.RobotoRegularEditText-->
+        <!--android:id="@+id/et_languageName"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_languageKnowWell"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:backgroundTint="@color/colorPrimary"-->
+        <!--android:singleLine="true"-->
+        <!--android:inputType="textCapSentences"-->
+        <!--android:textColorHint="@color/grey"-->
+        <!--android:textCursorDrawable="@drawable/cursor_drawable"-->
+        <!--android:textSize="14sp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:hint="@string/add_language_name"/>-->
+
+        <!--<com.utaliiguides.RobotoRegularTextView-->
+        <!--android:id="@+id/tv_addMoreLanguage"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/et_languageName"-->
+        <!--android:padding="12dp"-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:alpha=".8"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="@string/add_more"-->
+        <!--android:textAllCaps="true"/>-->
+
+        <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/rv_addedLanguage"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_addMoreLanguage"-->
+        <!--android:visibility="gone">-->
+        <!--</androidx.recyclerview.widget.RecyclerView>-->
+
+        <!--<com.utaliiguides.RobotoMediumButton-->
+        <!--android:id="@+id/btn_save"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/rv_addedLanguage"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_marginBottom="30dp"-->
+        <!--android:paddingLeft="45dp"-->
+        <!--android:paddingRight="45dp"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:background="@drawable/rounded_rect_orange"-->
+        <!--android:text="@string/text_save"/>-->
+
+        <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--</androidx.core.widget.NestedScrollView>-->
+        <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
