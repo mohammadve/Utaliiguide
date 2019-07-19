@@ -77,23 +77,23 @@ android:fillViewport="true">
                    />
 
             <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_uploadFrontSide"
-                    android:layout_width="0dp"
+                    android:id="@+id/iv_identityCardFrontSide"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtMessageDoc"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/iv_uploadBackSide"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_identityCardBackSide"
                     android:src="@mipmap/ic_document_placeholder"/>
 
             <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_uploadBackSide"
-                    android:layout_width="0dp"
+                    android:id="@+id/iv_identityCardBackSide"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtMessageDoc"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/iv_uploadFrontSide"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_identityCardFrontSide"
                     android:src="@mipmap/ic_document_placeholder"/>
 
             <com.utaliiguides.RobotoMediumTextView
@@ -101,9 +101,9 @@ android:fillViewport="true">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadFrontSide"
-                    app:layout_constraintRight_toRightOf="@+id/iv_uploadFrontSide"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadFrontSide"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_identityCardFrontSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_identityCardFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_identityCardFrontSide"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:text="@string/front_text"
@@ -114,9 +114,9 @@ android:fillViewport="true">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadBackSide"
-                    app:layout_constraintRight_toRightOf="@+id/iv_uploadBackSide"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadBackSide"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_identityCardBackSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_identityCardBackSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_identityCardBackSide"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:text="@string/back_text"
@@ -126,7 +126,7 @@ android:fillViewport="true">
                     android:id="@+id/et_identityNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_identityCardFrontSide"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:backgroundTint="@color/colorPrimary"
@@ -197,23 +197,23 @@ android:fillViewport="true">
             />
 
             <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_uploadLocalIdFrontSide"
-                    android:layout_width="0dp"
+                    android:id="@+id/iv_localIdFrontSide"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtMessageLocalDoc"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/iv_uploadLocalIdBackSide"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_localIdBackSide"
                     android:src="@mipmap/ic_document_placeholder"/>
 
             <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_uploadLocalIdBackSide"
-                    android:layout_width="0dp"
+                    android:id="@+id/iv_localIdBackSide"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtMessageLocalDoc"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/iv_uploadLocalIdFrontSide"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_localIdFrontSide"
                     android:src="@mipmap/ic_document_placeholder"/>
 
             <com.utaliiguides.RobotoMediumTextView
@@ -221,9 +221,9 @@ android:fillViewport="true">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadLocalIdFrontSide"
-                    app:layout_constraintRight_toRightOf="@+id/iv_uploadLocalIdFrontSide"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadLocalIdFrontSide"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_localIdFrontSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_localIdFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_localIdFrontSide"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:text="@string/front_text"
@@ -234,9 +234,9 @@ android:fillViewport="true">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintLeft_toLeftOf="@+id/iv_uploadLocalIdBackSide"
-                    app:layout_constraintRight_toRightOf="@+id/iv_uploadLocalIdBackSide"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadLocalIdBackSide"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_localIdBackSide"
+                    app:layout_constraintRight_toRightOf="@+id/iv_localIdBackSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_localIdBackSide"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:text="@string/back_text"
@@ -246,7 +246,7 @@ android:fillViewport="true">
                     android:id="@+id/et_localIDProofNo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_uploadLocalIdFrontSide"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_localIdFrontSide"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:backgroundTint="@color/colorPrimary"
@@ -318,7 +318,7 @@ android:fillViewport="true">
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_uploadDrivingFrontSide"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtMessageDrivingDoc"
@@ -328,7 +328,7 @@ android:fillViewport="true">
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_uploadDrivingBackSide"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtMessageDrivingDoc"

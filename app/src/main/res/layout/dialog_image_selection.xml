@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+
+        <com.utaliiguides.RobotoMediumTextView
+                android:id="@+id/tv_dialogTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:text="Select image from"
+                android:gravity="center"/>
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_gallerySelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dialogTitle"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="Gallery"
+                android:gravity="center"
+                android:padding="10dp"
+        />
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_cameraSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_gallerySelection"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="Camera"
+                android:gravity="center"
+                android:padding="10dp"/>
+
+        <com.utaliiguides.RobotoRegularTextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_cameraSelection"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:text="Cancel"
+                android:gravity="center"
+                android:padding="10dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

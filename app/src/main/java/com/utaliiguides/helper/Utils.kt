@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
+import android.location.Address
 import android.net.ConnectivityManager
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
@@ -13,6 +14,10 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
+import android.location.Geocoder
+import java.io.IOException
+import com.utaliiguides.models.countryList.StateLatLong
+
 
 class Utils {
     companion object {
@@ -138,8 +143,26 @@ class Utils {
 
         }
 
-
+        fun getLatLongFromCityName(mContext: Context, stateName: String?): ArrayList<StateLatLong> {
+            var latLongList: ArrayList<StateLatLong>? = null
+            try {
+                val gc = Geocoder(mContext)
+                val addresses = gc.getFromLocationName(stateName, 5) // get the found Address Objects
+                latLongList = ArrayList<StateLatLong>()
+                for (item in addresses) {
+                    if (item.hasLatitude() && item.hasLongitude()) {
+                        val location = StateLatLong()
+                        location.setLatitude(item.latitude)
+                        location.setLongitude(item.longitude)
+                        latLongList.add(location)
+                        break
+                    }
+                }
+                return  latLongList
+            } catch (e: IOException) {
+                // handle the exception
+            }
+            return latLongList!!
+        }
     }
-
-
 }

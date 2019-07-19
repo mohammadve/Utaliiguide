@@ -1,5 +1,7 @@
 package com.utaliiguides.fragment.signUp
 
+import android.content.Context
+import android.location.Geocoder
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -28,8 +30,11 @@ import kotlinx.android.synthetic.main.fragment_signup_step_two.*
 import com.zhy.view.flowlayout.TagFlowLayout
 import android.widget.TextView
 import com.utaliiguides.R
+import com.utaliiguides.models.GuideAddressModel
+import com.utaliiguides.models.countryList.StateLatLong
 import com.zhy.view.flowlayout.TagAdapter
 import com.zhy.view.flowlayout.FlowLayout
+import java.io.IOException
 
 
 class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -40,7 +45,9 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
     lateinit var mStateList: ArrayList<StateListData>
     var mStateAdapter: StateListAdapter? = null
 
-    lateinit var addMoreStateList: ArrayList<StateListData>
+
+    lateinit var addMoreStateList: ArrayList<GuideAddressModel>
+    var selectedCountryDate: CountryListData? = null
     var mSelectedMoreStateAdapter: SelectedStateListAdapter? = null
 
     lateinit var mLanguageList: ArrayList<String>
@@ -101,30 +108,27 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
 
     private fun initialiseAddMoreStateList()
     {
-        addMoreStateList = ArrayList<StateListData>()
+        addMoreStateList = ArrayList<GuideAddressModel>()
 
-        mStateFlowLayout!!.setAdapter(object : TagAdapter<StateListData>(addMoreStateList) {
-            override fun getView(parent: FlowLayout, position: Int, selectedState: StateListData): View {
+        mStateFlowLayout!!.setAdapter(object : TagAdapter<GuideAddressModel>(addMoreStateList) {
+            override fun getView(parent: FlowLayout, position: Int, selectedState: GuideAddressModel): View {
                 var view: View? = null
                 val mInflater = LayoutInflater.from(activity!!)
                 if (view == null) {
                     view = mInflater.inflate(R.layout.item_row_selected_state, mStateFlowLayout, false)
                 }
                 val mHoumourText = view!!.findViewById<View>(R.id.tv_state_name) as TextView
-                val humourValue = selectedState.getName()
+                val humourValue = selectedState.getStatename()
                 mHoumourText.setText(humourValue)
                 return view
             }
         })
 
-//        mSelectedMoreStateAdapter = SelectedStateListAdapter(activity!!)
-//
-//        val layoutManager = FlexboxLayoutManager(activity)
-//        layoutManager.flexDirection = FlexDirection.ROW
-//        layoutManager.justifyContent = JustifyContent.SPACE_AROUND
-        //rv_selectedStates.layoutManager = layoutManager
-        //rv_selectedStates.adapter = mSelectedMoreStateAdapter
-//        rv_selectedStates.isNestedScrollingEnabled = true
+        mStateFlowLayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
+            addMoreStateList.removeAt(position)
+            mStateFlowLayout.adapter.notifyDataChanged()
+            true;
+        })
     }
 
     private fun initialiseAddMoreLanguageList()
@@ -144,8 +148,8 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
         })
 
         mAddMoreLanguageFlowLayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
-            //Toast.makeText(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
-            Utils.showToast(activity!!, mLanguageList[position])
+            mLanguageList.removeAt(position)
+            mAddMoreLanguageFlowLayout.adapter.notifyDataChanged()
             true;
         })
     }
@@ -243,8 +247,8 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
             {
                 if (p2 != 0)
                 {
-                    val selectedCountryId = mCountryList.get(p2).getId()
-                    getStateList(selectedCountryId!!)
+                    selectedCountryDate = mCountryList.get(p2)
+                    getStateList(selectedCountryDate!!.getId()!!)
                 }
             }
             R.id.spinner_chooseState ->
@@ -252,7 +256,22 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
                 if (p2 != 0)
                 {
                     var selectedState = mStateList.get(p2)
-                    addMoreStateList.add(selectedState)
+                    var latitude = Utils.getLatLongFromCityName(activity!!, selectedState.getName())
+
+                    var guideAddress = GuideAddressModel()
+                    guideAddress.setCountryCode(selectedCountryDate!!.getSortname()!!)
+                    guideAddress.setCountryId(selectedCountryDate!!.getId()!!.toString())
+                    guideAddress.setCountryName(selectedCountryDate!!.getName()!!)
+
+                    guideAddress.setStateId(selectedState.getId())
+                    guideAddress.setStatename(selectedState.getName()!!)
+                    if(latitude != null && latitude.size > 0)
+                    {
+                        guideAddress.setLatitude(latitude[0].getLatitude())
+                        guideAddress.setLongitude(latitude[0].getLongitude())
+                    }
+
+                    addMoreStateList.add(guideAddress)
                 }
             }
         }
@@ -267,7 +286,6 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
             R.id.btn_save -> {
                 (activity as SignUpActivity).displayFragment(3)
             }
-
             R.id.tv_addMoreState -> {
                 updateAddMoreCountries()
             }
@@ -285,8 +303,6 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
     {
         spinner_chooseState.setSelection(0)
         mStateFlowLayout!!.adapter.notifyDataChanged()
-//        mSelectedMoreStateAdapter!!.setStateList(addMoreStateList, activity!!)
-//        mSelectedMoreStateAdapter!!.notifyDataSetChanged()
     }
 
     private fun updateAddMoreLanguage()

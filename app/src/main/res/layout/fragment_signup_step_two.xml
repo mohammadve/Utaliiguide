@@ -12,7 +12,7 @@
     <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-    android:fillViewport="true">
+            android:fillViewport="true">
 
 
         <LinearLayout
@@ -46,22 +46,21 @@
                             android:id="@+id/spinner_countrySelection"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
                             android:scrollbars="none"
                             android:background="@null"
                             android:dropDownVerticalOffset="30dp"
-                            android:paddingTop="15dp"
-                            android:paddingBottom="10dp">
+                            android:paddingTop="30dp">
 
                     </androidx.appcompat.widget.AppCompatSpinner>
 
                     <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_dropdown"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@mipmap/ic_dropdown"
-                            android:padding="12dp"
+                            android:paddingRight="12dp"
                             android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
 
@@ -83,32 +82,30 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/spinner_chooseState"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="10dp"
-                        android:scrollbars="none"
-                        android:background="@null"
-                        android:dropDownVerticalOffset="30dp">
+                    <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinner_chooseState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="30dp"
+                            android:scrollbars="none"
+                            android:background="@null"
+                            android:dropDownVerticalOffset="30dp">
 
-                </androidx.appcompat.widget.AppCompatSpinner>
+                    </androidx.appcompat.widget.AppCompatSpinner>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_dropdown"
-                        android:padding="12dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_dropdown"
+                            android:paddingRight="12dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"/>
                 </RelativeLayout>
 
                 <View android:layout_width="match_parent"
                       android:layout_height="1dp"
                       android:background="@color/colorPrimary"
-                      />
+                />
 
                 <com.utaliiguides.RobotoRegularTextView
                         android:id="@+id/tv_addMoreState"
@@ -182,13 +179,13 @@
                 </com.zhy.view.flowlayout.TagFlowLayout>
 
                 <!--<androidx.recyclerview.widget.RecyclerView-->
-                        <!--android:id="@+id/rv_addedLanguage"-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-                        <!--app:layout_constraintRight_toRightOf="parent"-->
-                        <!--app:layout_constraintTop_toBottomOf="@+id/tv_addMoreLanguage"-->
-                        <!--android:visibility="gone">-->
+                <!--android:id="@+id/rv_addedLanguage"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/tv_addMoreLanguage"-->
+                <!--android:visibility="gone">-->
                 <!--</androidx.recyclerview.widget.RecyclerView>-->
 
                 <com.utaliiguides.RobotoMediumButton
@@ -202,7 +199,7 @@
                         android:textColor="@color/colorWhite"
                         android:background="@drawable/rounded_rect_orange"
                         android:text="@string/text_save"
-                android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>
         </LinearLayout>
