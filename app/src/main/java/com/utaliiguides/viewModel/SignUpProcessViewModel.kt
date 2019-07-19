@@ -16,6 +16,7 @@ class SignUpProcessViewModel : ViewModel(){
     private var signUpResult: MutableLiveData<JsonObject>? = null
     private var countryListResult: MutableLiveData<JsonObject>? = null
     private var stateListResult: MutableLiveData<JsonObject>? = null
+    private var questionListResult: MutableLiveData<JsonObject>? = null
     var preference: AppPreference? = null
 
 
@@ -65,5 +66,30 @@ class SignUpProcessViewModel : ViewModel(){
             }
         })
         return stateListResult!!
+    }
+
+    fun getQuestionList(mContext: Context) : MutableLiveData<JsonObject>
+    {
+        questionListResult = MutableLiveData()
+        preference = AppPreference.getInstance(mContext)
+        var authToken = preference!!.getAuthToken()
+        var apiService = ApiClient.getClient().create(ApiService::class.java)
+
+        var call = apiService.getQuestions(authToken, "")
+        Utils.showProgressDialog(mContext)
+
+        call.enqueue(object : retrofit2.Callback<JsonObject>{
+
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                Utils.hideProgressDialog()
+                questionListResult!!.value = response.body()
+            }
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                Utils.hideProgressDialog()
+                Utils.showLog(t.message!!)
+            }
+        })
+        return questionListResult!!
     }
 }

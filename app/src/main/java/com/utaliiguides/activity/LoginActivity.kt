@@ -100,47 +100,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         return true
     }
 
-//    private fun loginUser() {
-//
-//        //device_token = ""
-//
-//        Utils.hideSoftKeyboard(this)
-//
-//        if(checkValidation()){
-//            loginViewModel!!.loginUser(this, "", "", "").observe(this, androidx.lifecycle.Observer {
-//
-//                if(it != null && it.has("status") && it.get("status").asString.equals("1")){
-//
-//                    if (it.has("otp")){
-//
-//                        // Utils.showToast(this, getString(R.string.msg_otp_sent))
-//                        Utils.showToast(this, it.get("message").asString)
-//
-//                        otp = it.get("otp").asString
-//
-//                        //if (bottomSheetDialogFragment == null) {
-//                        bottomSheetDialogFragment = VerifyOTPDialogFragment.newInstance(otp, this)
-//                        bottomSheetDialogFragment!!.show(supportFragmentManager, "VerifyOTPDialogFragment")
-//                        //   }
-//
-//                    } else {
-//                        Utils.showToast(this, getString(R.string.msg_common_error))
-//                    }
-//
-//                }
-//                else {
-//                    if(it != null && it.has("message")){
-//                        Utils.showToast(this,it.get("message").asString)
-//                        Log.e("TAG","message status 0 SignUp  === "+it.get("message").asString)
-//                    }
-//
-//                }
-//            })
-//
-//        }
-//
-//    }
-
 
     fun loginUser(){
 

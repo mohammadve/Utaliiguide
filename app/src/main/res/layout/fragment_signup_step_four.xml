@@ -52,39 +52,22 @@
                     android:textSize="16sp"
                     android:text="@string/question_one"/>
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_questionOne"
-                    android:layout_width="0dp"
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_ansQuestionFirst"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtQuestionOne"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:scrollbars="none"
-                    android:background="@null"
-                    android:dropDownVerticalOffset="30dp">
-
-            </androidx.appcompat.widget.AppCompatSpinner>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@+id/spinner_questionOne"
-                    app:layout_constraintBottom_toBottomOf="@+id/spinner_questionOne"
-                    app:layout_constraintRight_toRightOf="@+id/spinner_questionOne"
-                    android:src="@mipmap/ic_dropdown"
-                    android:padding="12dp"/>
-
-            <View android:layout_width="0dp"
-                  android:layout_height="1dp"
-                  android:background="@color/colorPrimary"
-                  app:layout_constraintLeft_toLeftOf="parent"
-                  app:layout_constraintRight_toRightOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/spinner_questionOne"/>
+                    android:backgroundTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:textSize="14sp"
+                    android:layout_marginTop="15dp"
+                    android:hint="Write your answer"/>
 
             <com.utaliiguides.RobotoMediumTextView
                     android:id="@+id/txtQuestionTwo"
@@ -93,44 +76,27 @@
                     android:layout_marginTop="20dp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_questionOne"
+                    app:layout_constraintTop_toBottomOf="@+id/et_ansQuestionFirst"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:text="@string/question_two"/>
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_questionTwo"
-                    android:layout_width="0dp"
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_ansQuestionTwo"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtQuestionTwo"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:scrollbars="none"
-                    android:background="@null"
-                    android:dropDownVerticalOffset="30dp">
-
-            </androidx.appcompat.widget.AppCompatSpinner>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@+id/spinner_questionTwo"
-                    app:layout_constraintBottom_toBottomOf="@+id/spinner_questionTwo"
-                    app:layout_constraintRight_toRightOf="@+id/spinner_questionTwo"
-                    android:src="@mipmap/ic_dropdown"
-                    android:padding="12dp"/>
-
-            <View android:layout_width="0dp"
-                  android:layout_height="1dp"
-                  android:background="@color/colorPrimary"
-                  app:layout_constraintLeft_toLeftOf="parent"
-                  app:layout_constraintRight_toRightOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/spinner_questionTwo"/>
+                    android:backgroundTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:textSize="14sp"
+                    android:layout_marginTop="15dp"
+                    android:hint="Write your answer"/>
 
 
             <com.utaliiguides.RobotoMediumTextView
@@ -140,51 +106,34 @@
                     android:layout_marginTop="20dp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_questionTwo"
+                    app:layout_constraintTop_toBottomOf="@+id/et_ansQuestionTwo"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:text="@string/question_three"/>
 
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_questionThree"
-                    android:layout_width="0dp"
+            <com.utaliiguides.RobotoRegularEditText
+                    android:id="@+id/et_ansQuestionThree"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtQuestionThree"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:scrollbars="none"
-                    android:background="@null"
-                    android:dropDownVerticalOffset="30dp">
-
-            </androidx.appcompat.widget.AppCompatSpinner>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@+id/spinner_questionThree"
-                    app:layout_constraintBottom_toBottomOf="@+id/spinner_questionThree"
-                    app:layout_constraintRight_toRightOf="@+id/spinner_questionThree"
-                    android:src="@mipmap/ic_dropdown"
-                    android:padding="12dp"/>
-
-            <View android:layout_width="0dp"
-                  android:layout_height="1dp"
-                  android:background="@color/colorPrimary"
-                  app:layout_constraintLeft_toLeftOf="parent"
-                  app:layout_constraintRight_toRightOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/spinner_questionThree"/>
+                    android:backgroundTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="textCapSentences"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:textSize="14sp"
+                    android:layout_marginTop="15dp"
+                    android:hint="Write your answer"/>
 
             <com.utaliiguides.RobotoMediumButton
                     android:id="@+id/btn_saveQuesAns"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_questionThree"
+                    app:layout_constraintTop_toBottomOf="@+id/et_ansQuestionThree"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_marginTop="45dp"

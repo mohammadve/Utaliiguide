@@ -13,6 +13,7 @@ class ApiList {
 
         const val SEARCH_LOCATION = "deshboard/searchLocation"
         const val GET_STATE_BY_COUNTRY = "deshboard/getstateBycountry"
+        const val GET_QUESTIONS_LIST = "guides/questionsList"
       //  const val UPDATE_PASS_URL = "guides/resetPassword"
         const val RESET_PASS_URL = "guides/resetPassword"
         const val ADD_BANK_DETAILS = "guides/addbankdetails"

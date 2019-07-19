@@ -3,10 +3,7 @@ package com.utalli.network
 import com.google.gson.JsonObject
 import com.utaliiguides.models.responseModel.userRegisterLogin.login.LoginResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 interface ApiService {
@@ -30,6 +27,13 @@ interface ApiService {
     fun getStates(
         @Header("x-access-token") token: String,
         @Field("contryid") contryid: Int
+    ): Call<JsonObject>
+
+    @POST(ApiList.GET_QUESTIONS_LIST)
+    @FormUrlEncoded
+    fun getQuestions(
+        @Header("x-access-token") token: String,
+        @Field("id") testId: String
     ): Call<JsonObject>
 
 

@@ -1,5 +1,7 @@
 package com.utaliiguides.callBack
 
+import java.io.File
+
 interface UploadDocumentCallBack {
-    fun selectedImage(imagePath: String, documentType: Int)
+    fun selectedImage(imagePath: String, selectedDocFile: File, documentType: Int)
 }

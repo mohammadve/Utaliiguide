@@ -1,17 +1,27 @@
 package com.utaliiguides.activity
 
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.utaliiguides.R
 import com.utaliiguides.fragment.signUp.SignUpStepFirstFragment
 import com.utaliiguides.fragment.signUp.SignUpStepFourFragment
 import com.utaliiguides.fragment.signUp.SignUpStepThreeFragment
 import com.utaliiguides.fragment.signUp.SignUpStepTwoFragment
+import com.utaliiguides.helper.RealPathUtil
+import com.utalli.helpers.Utils
+import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.io.IOException
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener{
 
@@ -224,6 +234,26 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
         else
         {
             mManager!!.popBackStackImmediate()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        val fragment = mManager!!.findFragmentById(R.id.layoutContainer)
+        if (fragment != null && fragment.isVisible) {
+            if (fragment is SignUpStepThreeFragment) {
+                fragment.onRequestPermissionsResult(requestCode, permissions, grantResults)
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val fragment = mManager!!.findFragmentById(R.id.layoutContainer)
+        if (fragment != null && fragment.isVisible) {
+            if (fragment is SignUpStepThreeFragment) {
+                fragment.onActivityResult(requestCode, resultCode, data)
+            }
         }
     }
 
