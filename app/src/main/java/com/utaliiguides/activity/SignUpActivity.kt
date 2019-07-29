@@ -22,11 +22,13 @@ import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import java.io.IOException
+import java.util.HashMap
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener{
 
     private var mManager: FragmentManager? = null
     private var mTransaction: FragmentTransaction? = null
+    private var guideRegisterFields: HashMap<String, String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
         setSupportActionBar(toolbar_signUp)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar_signUp.setNavigationOnClickListener { removeFragmentFromBackStack()}
-
+        guideRegisterFields = HashMap()
         displayFragment(1)
     }
 
@@ -259,5 +261,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onBackPressed() {
         removeFragmentFromBackStack()
+    }
+
+    fun getGuideRegisterFieldMap(): HashMap<String, String>? {
+        return guideRegisterFields
     }
 }

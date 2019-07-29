@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.utaliiguides.R
 import com.utaliiguides.activity.SignUpActivity
@@ -99,7 +100,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 Glide
                     .with(this)
                     .load(imagePath)
-                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .apply(RequestOptions().transform(RoundedCorners(Utils.dp2px(activity!!, 5F))).placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
                     .into(iv_identityCardFrontSide)
                 identityFrontFile = selectedDoc
             }
@@ -107,7 +108,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 Glide
                     .with(this)
                     .load(imagePath)
-                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .apply(RequestOptions().transform(RoundedCorners(Utils.dp2px(activity!!, 5F))).placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
                     .into(iv_identityCardBackSide)
                 identityBackFile = selectedDoc
             }
@@ -115,7 +116,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 Glide
                     .with(this)
                     .load(imagePath)
-                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .apply(RequestOptions().transform(RoundedCorners(Utils.dp2px(activity!!, 5F))).placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
                     .into(iv_localIdFrontSide)
                 localIdFrontFile = selectedDoc
             }
@@ -123,7 +124,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 Glide
                     .with(this)
                     .load(imagePath)
-                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .apply(RequestOptions().transform(RoundedCorners(Utils.dp2px(activity!!, 5F))).placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
                     .into(iv_localIdBackSide)
                 localIdBackFile = selectedDoc
             }
@@ -131,7 +132,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 Glide
                     .with(this)
                     .load(imagePath)
-                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .apply(RequestOptions().transform(RoundedCorners(Utils.dp2px(activity!!, 5F))).placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
                     .into(iv_uploadDrivingFrontSide)
                 dlIdFrontFile = selectedDoc
             }
@@ -139,7 +140,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 Glide
                     .with(this)
                     .load(imagePath)
-                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .apply(RequestOptions().transform(RoundedCorners(Utils.dp2px(activity!!, 5F))).placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
                     .into(iv_uploadDrivingBackSide)
                 dlIdBackFile = selectedDoc
             }
@@ -187,6 +188,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
             isValid = false
         } else {
             isValid = true
+            //putAllDataToFieldMap()
         }
         return isValid
     }
