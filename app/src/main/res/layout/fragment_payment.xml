@@ -66,6 +66,8 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/receivedPaymentRV"
             android:layout_width="match_parent"
@@ -77,6 +79,8 @@
             android:scrollbars="none"
             android:visibility="visible"
     android:layout_margin="2dp"/>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_noNotificationFound"

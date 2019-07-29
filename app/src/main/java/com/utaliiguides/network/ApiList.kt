@@ -20,6 +20,23 @@ class ApiList {
         const val ALREADY_ADDED_ACCOUNTS_DETAILS = "guides/bankdetailsList"
         const val REMOVE_BANK_DETAILS = "guides/removeBankdetails"
         const val SET_DEFAULT_BANK_PAYMENT = "guides/setdefaultbank"
+        const val GET_TOUR_REQUEST = "guides/tourRequestList"
+        const val ACCEPT_TOUR_REQUEST = "guides/tourRequestAction"
+        const val REJECT_TOUR_REQUEST = "guides/tourRequestAction"
+        const val UPDATE_GUIDE_PROFILE_IMAGE = "guides/UpdateuserProfileimage"
+        const val UPDATE_PROFILE = "guides/UpdateuserProfile"
+        const val CHANGE_GUIDE_DUTY = "guides/changeguideduty"
+        const val GUIDE_TRIPS_LIST_URL = "guides/guide_trips"
+        const val GUIDE_PROFILE_INFO = "guide/guidinformation"
+        const val PAYMENT_TOTAL_EARNINGS = "guides/payments"
+        const val TODAY_TRIP_LIST = "guides/todaytrip"
+
+        const val ABOUT_US = "guide/guideappaboutus"
+        const val PRIVACY_POLICY = "guide/guidappprivacypolicies"
+        const val HELP_AND_SUPPORT = "guide/guideapphelpandsupport"
+        const val ABOUT_APP = "guide/appinfo"
+
+        const val REQUEST_LIST_DETAIL = "guides/request_details"
 
 
 

@@ -31,8 +31,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_stepFirst"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:src="@mipmap/ic_personal_on"
                     android:layout_gravity="center"/>
 
@@ -53,8 +53,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_stepTwo"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:src="@mipmap/ic_places_off"
                     android:layout_gravity="center"/>
 
@@ -74,8 +74,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_stepThree"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:src="@mipmap/ic_document_off"
                     android:layout_gravity="center"/>
 
@@ -95,8 +95,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_stepFour"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:src="@mipmap/ic_qa_off"
                     android:layout_gravity="center"/>
 

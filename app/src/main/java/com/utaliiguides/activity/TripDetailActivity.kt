@@ -72,6 +72,9 @@ class TripDetailActivity : AppCompatActivity(), View.OnClickListener {
     {
         iv_backArrow.setOnClickListener(this)
         iv_toolbarMore.setOnClickListener(this)
+        cl_start_Tour.setOnClickListener(this)
+        cl_end_Tour.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?) {
@@ -85,6 +88,18 @@ class TripDetailActivity : AppCompatActivity(), View.OnClickListener {
             {
 
             }
+
+            R.id.cl_start_Tour ->{
+              cl_end_Tour.visibility = View.VISIBLE
+                cl_start_Tour.visibility = View.GONE
+            }
+
+            R.id.cl_end_Tour ->{
+                cl_start_Tour.visibility = View.VISIBLE
+                cl_end_Tour.visibility = View.GONE
+            }
+
+
         }
     }
 }

@@ -13,21 +13,28 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.*
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.gson.JsonObject
 import com.utaliiguides.R
 import com.utaliiguides.activity.HomeActivity
 import com.utaliiguides.helper.ConstantFragmentName
 import com.utaliiguides.helper.RealPathUtil
+import com.utaliiguides.viewModel.MyProfileViewModel
 import com.utalli.helpers.AppPreference
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_profile.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -41,19 +48,82 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
     val CAMERA_REQUEST = 101
     val GALLERY_REQUEST = 102
     var imageFilePath: String = ""
+    var myProfileViewModel : MyProfileViewModel?= null
+    var duty : Boolean ?= null
+    var preference: AppPreference? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        preference = AppPreference.getInstance(this)
         setupUI()
         setupClickListener()
+
+        setProfileData()
 
     }
 
     private fun setupUI()
     {
+
+        myProfileViewModel = ViewModelProviders.of(this).get(MyProfileViewModel::class.java)
         iv_profile_image.setImageResource(R.mipmap.ic_profile_placeholder)
+
+
+
+
+
     }
+
+    private fun setProfileData() {
+        myProfileViewModel!!.setGuideProfile(this).observe(this, androidx.lifecycle.Observer {
+
+            if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
+
+                if(it.has("data") && it.get("data") is JsonObject){
+
+                    var dataObject = it.getAsJsonObject("data")
+
+                    if(dataObject.has("name")){
+                        et_user_name.setText(dataObject.get("name").asString)
+                    }
+
+                    if(dataObject.has("guide_mobile_no")){
+                        et_user_number.setText(dataObject.get("guide_mobile_no").asString)
+                    }
+
+                    if(dataObject.has("guide_email")){
+                        et_email_id.setText(dataObject.get("guide_email").asString)
+                    }
+
+                    if(dataObject.has("guide_address")){
+                        et_address.setText(dataObject.get("guide_address").asString)
+                    }
+
+                    if(dataObject.has("emry_contact")){
+                        et_emergency_contact_number.setText(dataObject.get("emry_contact").asString)
+                    }
+
+                    if(dataObject.has("guid_profile_img")){
+
+                        Glide
+                            .with(this)
+                            .load(dataObject.get("guid_profile_img").asString)
+                            .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                            .into(iv_profile_image)
+                    }
+
+
+                }
+
+
+            }
+
+        })
+    }
+
 
     private fun setupClickListener()
     {
@@ -62,9 +132,55 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
         iv_editProfile_icon.setOnClickListener(this)
         tv_save.setOnClickListener(this)
 
+        tv_edit_cover.setOnClickListener(this)
+
         cl_helpAndSupport.setOnClickListener(this)
         cl_documents.setOnClickListener(this)
         tv_logout.setOnClickListener(this)
+
+
+        if (!preference!!.getGuideOnlineStatus().equals("")) {
+            guide_online_offline_switch.isChecked = preference!!.getGuideOnlineStatus().equals("1")
+        } else {
+            guide_online_offline_switch.isChecked = true
+        }
+
+
+
+           guide_online_offline_switch.setOnCheckedChangeListener { p0, value ->
+
+               if (value) {
+
+                   myProfileViewModel!!.changeGuideDuty(this@MyProfileActivity, 1).observe(this@MyProfileActivity, androidx.lifecycle.Observer {
+
+                       if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
+
+                           Utils.showToast(this@MyProfileActivity, it.get("message").asString)
+                       //    Utils.showToast(this@MyProfileActivity, "Onlinee")
+                           preference!!.setGuideOnlineStatus("1")
+
+                       }
+                   })
+
+
+               } else {
+
+                   myProfileViewModel!!.changeGuideDuty(this@MyProfileActivity, 0).observe(this@MyProfileActivity, androidx.lifecycle.Observer {
+
+                       if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
+
+                           Utils.showToast(this@MyProfileActivity, it.get("message").asString)
+
+                          // Utils.showToast(this@MyProfileActivity, "Offline")
+
+                           preference!!.setGuideOnlineStatus("0")
+
+                       }
+                   })
+               }
+           }
+
+
     }
 
     fun changeViewsEditProperty(editable: Boolean) {
@@ -136,14 +252,14 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
                     TransitionManager.beginDelayedTransition(cl_edit)
                     tv_save.visibility = View.VISIBLE
                 }
-                changeViewsEditProperty(true)
+               // changeViewsEditProperty(true)
             }
 
             R.id.tv_save ->{
-                tv_save.visibility = View.GONE
-                changeViewsEditProperty(false)
-                TransitionManager.beginDelayedTransition(cl_edit)
-                //uploadProileData()
+               // tv_save.visibility = View.GONE
+               // changeViewsEditProperty(false)
+               // TransitionManager.beginDelayedTransition(cl_edit)
+                uploadProileData()
             }
 
             R.id.cl_helpAndSupport -> {
@@ -161,6 +277,39 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
 
         }
     }
+
+
+
+
+    private fun uploadProileData() {
+        myProfileViewModel!!.updateProfile(this,et_user_name.text.toString(),
+            et_email_id.text.toString(),
+            et_user_number.text.toString(),
+            et_emergency_contact_number.text.toString(),
+            et_address.text.toString()
+            ).observe(this, androidx.lifecycle.Observer {
+
+
+            if(it != null && it.has("status") && it.get("status").asString.equals("1")){
+                Utils.showToast(this, it.get("message").asString)
+
+                if(it.has("data") && it.get("data") is JsonObject){
+
+                    tv_save.visibility = View.GONE
+                    et_user_name.isEnabled = false
+                    et_user_number.isEnabled = false
+                    et_email_id.isEnabled = false
+                    et_address.isEnabled = false
+                    et_emergency_contact_number.isEnabled = false
+                }
+
+            }
+
+        })
+
+    }
+
+
 
     private fun logout() {
         AppPreference.getInstance(this).setUserData("")
@@ -275,13 +424,13 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
                 val compressedImage = compressImage(imageFilePath)
 
 
-                Glide
+              /*  Glide
                     .with(this)
                     .load(compressedImage)
                     .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
-                    .into(iv_profile_image);
+                    .into(iv_profile_image);*/
 
-                //uploadImage(compressedImage)
+                uploadImage(compressedImage)
 
 
             } catch (e: IOException) {
@@ -296,19 +445,69 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
 
                 val compressedImage = compressImage(selectedFilePath)
 
-                Glide
+          /*      Glide
                     .with(this)
                     .load(compressedImage)
                     .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
-                    .into(iv_profile_image);
+                    .into(iv_profile_image);*/
 
-                //uploadImage(compressedImage)
+                uploadImage(compressedImage)
 
             } catch (e: IOException) {
                 e.printStackTrace()
             }
         }
     }
+
+
+
+
+
+    private fun uploadImage(imageUri: String) {
+        pb_image.visibility = View.VISIBLE
+        var file = File(imageUri)
+        var requestFile = RequestBody.create(MediaType.parse("image/jpeg"), file)
+        var img = MultipartBody.Part.createFormData("image", file.name,requestFile)
+
+        myProfileViewModel!!.updateProfilePic(this, img).observe(this, androidx.lifecycle.Observer {
+
+
+            if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
+                  Utils.showToast(this, it.get("message").asString)
+
+                pb_image.visibility = View.GONE
+
+                if(it.has("data") && it.get("data") is JsonObject){
+
+                    var dataObj = it.getAsJsonObject("data")
+
+                    if(dataObj.has("guid_profile_img")){
+                Glide
+                    .with(this)
+                    .load(dataObj.get("guid_profile_img").asString)
+                    .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                    .into(iv_profile_image)
+                    }
+
+                }
+
+
+
+
+            } else {
+                pb_image.visibility = View.GONE
+            }
+
+        })
+
+
+
+
+
+    }
+
+
+
 
     fun compressImage(imageUri: String): String {
 

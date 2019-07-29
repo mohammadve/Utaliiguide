@@ -2,6 +2,8 @@ package com.utalli.network
 
 import com.google.gson.JsonObject
 import com.utaliiguides.models.responseModel.userRegisterLogin.login.LoginResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -91,5 +93,121 @@ interface ApiService {
         @Field("guideId") guideId : Int
     ): Call<JsonObject>
 
+    @POST(ApiList.GET_TOUR_REQUEST)
+    @FormUrlEncoded
+    fun getTourRequest(
+        @Header("x-access-token") token: String,
+        @Field("guideId") guideId : Int
+    ): Call<JsonObject>
+
+
+    @POST(ApiList.ACCEPT_TOUR_REQUEST)
+    @FormUrlEncoded
+    fun acceptTourRequest(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId : Int,
+        @Field("tourrequestId") tourrequestId : Int,
+        @Field("requeststatus") requeststatus : Int
+    ): Call<JsonObject>
+
+    @POST(ApiList.REJECT_TOUR_REQUEST)
+    @FormUrlEncoded
+    fun rejectNewTourRequest(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId : Int,
+        @Field("tourrequestId") tourrequestId : Int,
+        @Field("requeststatus") requeststatus : Int
+    ): Call<JsonObject>
+
+
+    @Multipart
+    @POST(ApiList.UPDATE_GUIDE_PROFILE_IMAGE)
+    fun updateProfilePic(
+        @Part("id") id: RequestBody,
+        @Part image: MultipartBody.Part
+    ): Call<JsonObject>
+
+    @POST(ApiList.UPDATE_PROFILE)
+    @FormUrlEncoded
+    fun updateProfile(
+        @Header("x-access-token") token : String,
+        @Field("name") name : String,
+        @Field("guide_email") guide_email: String,
+        @Field("contactno") contactno: String,
+        @Field("emry_contact") emry_contact: String,
+        @Field("guide_address") guide_address : String,
+        @Field("id") id : Int
+    ):Call<JsonObject>
+
+    @POST(ApiList.CHANGE_GUIDE_DUTY)
+    @FormUrlEncoded
+    fun changeGuideDuty(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId : Int,
+        @Field("duty") duty : Int
+
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.GUIDE_PROFILE_INFO)
+    @FormUrlEncoded
+    fun setGuideProfile(
+        @Header("x-access-token") token : String,
+        @Field("guidId") guidId : Int
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.GUIDE_TRIPS_LIST_URL)
+    @FormUrlEncoded
+    fun getGuideTripList(
+        @Header("x-access-token") token: String,
+        @Field("guideId") guideId : Int
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.PAYMENT_TOTAL_EARNINGS)
+    @FormUrlEncoded
+    fun getPayment_totalEarnings(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId : Int
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.TODAY_TRIP_LIST)
+    @FormUrlEncoded
+    fun getTodayTripList(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId :Int
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.ABOUT_US)
+    fun aboutUs(
+        @Header("x-access-token") token : String
+    ):Call<JsonObject>
+
+    @POST(ApiList.PRIVACY_POLICY)
+    fun privacyPolicy(
+        @Header("x-access-token") token : String
+    ):Call<JsonObject>
+
+    @POST(ApiList.HELP_AND_SUPPORT)
+    fun helpAndSupport(
+        @Header("x-access-token") token : String
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.ABOUT_APP)
+    fun aboutApp(
+        @Header("x-access-token") token : String
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.REQUEST_LIST_DETAIL)
+    @FormUrlEncoded
+    fun requestListDetail(
+        @Header("x-access-token") token : String,
+        @Field("req_id") req_id : Int
+    ):Call<JsonObject>
 
 }

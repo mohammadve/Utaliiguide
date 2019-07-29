@@ -11,6 +11,7 @@
         app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp">
@@ -34,7 +35,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/iv_requesterProfileImage"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
-                android:text="Tammie Moran"
+                android:text=""
                 android:maxLines="1"
                 android:layout_marginLeft="10dp"/>
 
@@ -102,7 +103,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_arrivalText"
                 android:textColor="@color/colorBlack_2"
                 android:textSize="14sp"
-                android:text="12 May, 2019"/>
+                android:text=""/>
 
         <com.utaliiguides.RobotoRegularTextView
                 android:id="@+id/tv_departureDateText"
@@ -113,7 +114,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_departureText"
                 android:textColor="@color/colorBlack_2"
                 android:textSize="14sp"
-                android:text="15 May, 2019"/>
+                android:text=""/>
 
         <com.utaliiguides.RobotoMediumTextView
                 android:id="@+id/tv_messageText"
@@ -140,7 +141,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tv_messageText"
                 android:textColor="@color/colorGreen"
                 android:textSize="16sp"
-                android:text="Accept"
+                android:text="@string/text_accept"
                 android:textAllCaps="true"
                 android:paddingTop="16dp"
                 android:paddingRight="10dp"
@@ -159,7 +160,7 @@
                 android:paddingBottom="5dp"
                 android:textColor="@color/grey"
                 android:textSize="16sp"
-                android:text="Reject"
+                android:text="@string/text_reject"
                 android:textAllCaps="true"/>
 
 

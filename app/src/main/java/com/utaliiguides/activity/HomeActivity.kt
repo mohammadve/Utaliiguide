@@ -15,10 +15,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.reflect.TypeToken
 import com.utaliiguides.R
 import com.utaliiguides.RobotoMediumTextView
 import com.utaliiguides.fragment.dashboard.*
+import com.utaliiguides.models.TourRequestListModel
+import com.utaliiguides.viewModel.TourRequestViewModel
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -36,6 +43,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var guideName: RobotoMediumTextView? = null
     private var guideAddress: RobotoMediumTextView? = null
 
+
+
+
+    var tourRequestViewModel : TourRequestViewModel?= null
+    var newRequestListCount: Int = 0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -43,7 +57,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initializeView()
         setUpDrawerLayout()
         setUpClickListener()
-        setDisplayFragment(1)
     }
 
     /**
@@ -60,7 +73,51 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         guideProfileImage = headerLayout.findViewById<View>(R.id.profile_img) as CircleImageView
         guideName = headerLayout.findViewById<View>(R.id.tv_guideName) as RobotoMediumTextView
         guideAddress = headerLayout.findViewById<View>(R.id.tv_guideAddress) as RobotoMediumTextView
+
+
+
+        tourRequestViewModel = ViewModelProviders.of(this).get(TourRequestViewModel::class.java)
+        getTourRequestList()
     }
+
+    private fun getTourRequestList() {
+
+        tourRequestViewModel!!.getTourRequest(this).observe(this , Observer {
+
+            if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
+
+                if(it.has("data") && it.get("data") is JsonArray){
+
+                    val type = object : TypeToken<ArrayList<TourRequestListModel>>() {}.type
+                    var requestList = Gson().fromJson<ArrayList<TourRequestListModel>>(it.get("data"), type)
+
+                    if(requestList!= null && requestList.size > 0){
+                        newRequestListCount =  requestList.size
+                        setDisplayFragment(1)
+                    }
+                    else
+                    {
+                        setDisplayFragment(1)
+                    }
+                }
+            }
+        })
+    }
+
+    fun getNewRequestCount() : Int
+    {
+        return newRequestListCount
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        getTourRequestList()
+     //   setDisplayFragment(1)
+    }
+
+
+
 
     /**
      * Setup Drawer Layout
@@ -184,7 +241,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 replaceFragment(mFragment)
             }
             8 -> {
-                mFragment = RequestFragment()
+                mFragment = TourRequestFragment()
                 replaceFragment(mFragment)
             }
             9 -> {
@@ -226,17 +283,20 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else if (mManager!!.findFragmentById(R.id.container) is MessagesFragment)
         {
             mManager!!.popBackStackImmediate()
-        } else if (mManager!!.findFragmentById(R.id.container) is PaymentFragment)
-        {
-            mManager!!.popBackStackImmediate()
-        } else if (mManager!!.findFragmentById(R.id.container) is AppSettingsFragment)
-        {
-            mManager!!.popBackStackImmediate()
-        } else if (mManager!!.findFragmentById(R.id.container) is AboutAppFragment)
+        }
+        else if (mManager!!.findFragmentById(R.id.container) is PaymentFragment)
         {
             mManager!!.popBackStackImmediate()
         }
-        else if (mManager!!.findFragmentById(R.id.container) is RequestFragment)
+        else if (mManager!!.findFragmentById(R.id.container) is AppSettingsFragment)
+        {
+            mManager!!.popBackStackImmediate()
+        }
+        else if (mManager!!.findFragmentById(R.id.container) is AboutAppFragment)
+        {
+            mManager!!.popBackStackImmediate()
+        }
+        else if (mManager!!.findFragmentById(R.id.container) is TourRequestFragment)
         {
             mManager!!.popBackStackImmediate()
         }

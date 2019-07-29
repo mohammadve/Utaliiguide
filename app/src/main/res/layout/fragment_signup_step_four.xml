@@ -2,26 +2,24 @@
 <androidx.core.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
             android:paddingBottom="20dp">
 
         <com.utaliiguides.RobotoMediumTextView
                 android:id="@+id/txt_personalDetails"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintRight_toRightOf="parent"
@@ -37,19 +35,18 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_personalDetails"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp">
 
             <com.utaliiguides.RobotoMediumTextView
                     android:id="@+id/txtQuestionOne"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:textColor="@color/grey"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:text="@string/question_one"/>
 
             <com.utaliiguides.RobotoRegularEditText
@@ -78,7 +75,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_ansQuestionFirst"
                     android:textColor="@color/grey"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:text="@string/question_two"/>
 
             <com.utaliiguides.RobotoRegularEditText
@@ -108,7 +105,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_ansQuestionTwo"
                     android:textColor="@color/grey"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:text="@string/question_three"/>
 
 
@@ -144,5 +141,7 @@
                     android:text="@string/text_save"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>

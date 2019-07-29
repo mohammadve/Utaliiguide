@@ -90,6 +90,7 @@ class AlreadyAddedAccountsFragment : Fragment(), View.OnClickListener, PaymentRe
         })
     }
 
+
     override fun removeBankDetails(position: Int, message: String) {
         var selectedItem = bankDetailsList.get(position)
         if (message.equals("Update")) {

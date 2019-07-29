@@ -28,6 +28,7 @@ class AddBankAccountViewModel : ViewModel(){
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
         var call = apiService.addBankAccount(token, guideId, account_name, account_no, account_swift_code, branch_no)
+        Utils.showProgressDialog(mContext)
 
         call.enqueue(object : retrofit2.Callback<JsonObject>{
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {

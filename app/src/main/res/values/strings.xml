@@ -96,13 +96,13 @@
     <string name="text_departure">Departure</string>
     <string name="people_in_this_pool">People in this pool</string>
     <string name="create_new_tour">Create new tour</string>
-    <string name="after_private_type_tour_is_created_you_can_not_accept_pool_type_request">After private type tour is
-        created you can not accept pool type request
+    <string name="after_pool_type_tour_is_created_you_can_not_accept_pool_type_request">After pool is created
+         you can accept pool type requests for these particular day.
     </string>
     <string name="text_private_tour">Private Tour</string>
     <string name="text_pool">Pool</string>
-    <string name="enter_no_of_people_in_pool">Enter no of people</string>
-    <string name="limit_number_of_people_in_pool">Limit number of people in pool</string>
+<string name="enter_no_of_people_in_pool">Enter number of people in this pool</string>
+
     <string name="text_notes">Notes</string>
     <string name="description_for_this_pool">Description for this pool</string>
     <string name="text_create">Create</string>
@@ -143,6 +143,21 @@
     <string name="please_make_sure_all_information_are_correct_as_it_will_used_to_for_payment_wrong_information_may_cause_problem_in_payment">
         Please make sure all information are correct as it will used to for payment, wrong information may cause problem
         in payment.
+    </string>
+    <string name="text_message">MESSAGE</string>
+    <string name="text_requested_pool_for">Requested pool for</string>
+    <string name="text_accept">Accept</string>
+    <string name="text_reject">Reject</string>
+    <string name="text_tourist_in_this_pool">Tourist in this pool</string>
+    <string name="text_settings">Settings</string>
+    <string name="text_help_and_support">Help and support</string>
+    <string name="text_privacy_policy">Privacy policy</string>
+    <string name="text_about_us">About us</string>
+    <string name="text_start_tour">START TOUR</string>
+    <string name="text_end_tour">END TOUR</string>
+    <string name="text_update">UPDATE</string>
+    <string name="text_after_updating_you_will_be_available_for_personal_tour_if_you_need_you_can_mark_unavailability_from_profile">
+        After updating, you will be available for personal tour. If you need you can mark unavailability from profile.
     </string>
 
 

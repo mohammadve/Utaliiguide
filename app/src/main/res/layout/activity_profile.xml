@@ -30,6 +30,25 @@
                 android:src="@mipmap/ic_back_white"
         />
 
+
+        <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/guide_online_offline_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                app:switchPadding="10dp"
+                android:textSize="16sp"
+                android:theme="@style/SCBSwitch"
+                android:textColor="@color/colorWhite"
+                android:text="Online"
+        />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -62,8 +81,23 @@
                         android:id="@+id/iv_background_img"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/app_gradient"
                 />
+
+
+                <com.utaliiguides.RobotoMediumTextView
+                        android:id="@+id/tv_edit_cover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="20dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorWhite"
+                        android:text="EDIT COVER"
+                />
+
 
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -72,6 +106,7 @@
                         android:src="@mipmap/ic_compass_titlebar"
                         android:layout_alignBottom="@+id/iv_background_img"
                         android:layout_alignParentRight="true"
+                        android:visibility="gone"
                 />
 
 
