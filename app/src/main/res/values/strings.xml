@@ -159,8 +159,7 @@
     <string name="text_after_updating_you_will_be_available_for_personal_tour_if_you_need_you_can_mark_unavailability_from_profile">
         After updating, you will be available for personal tour. If you need you can mark unavailability from profile.
     </string>
-    <string name="msg_empty_user_name">Please enter your name.</string>
-    <string name="msg_empty_gender">Please select your gender.</string>
+
     <string name="msg_empty_date_of_birth">Please enter your date of birth</string>
 
 

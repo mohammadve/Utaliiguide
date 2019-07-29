@@ -50,7 +50,16 @@ class SignUpStepFirstFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.btn_signUp ->{
-                (activity as SignUpActivity).displayFragment(2)
+                if (Utils.isInternetAvailable(activity!!))
+                {
+                    if (isValidate())
+                    {
+                        (activity as SignUpActivity).displayFragment(2)
+                    }
+                }
+                else {
+                    Utils.showToast(activity!!, resources.getString(R.string.msg_no_internet))
+                }
             }
             R.id.tv_sign_in ->{
                 val intent = Intent(activity!!, LoginActivity::class.java)
@@ -108,7 +117,7 @@ class SignUpStepFirstFragment : Fragment(), View.OnClickListener {
             Utils.showToast(activity!!, getString(R.string.msg_empty_user_name))
             isValid = false
         } else if (TextUtils.isEmpty(genderType)) {
-            Utils.showToast(activity!!, getString(R.string.msg_empty_gender))
+            Utils.showToast(activity!!, getString(R.string.msg_empty_gender_type))
             isValid = false
         } else if (TextUtils.isEmpty(et_dateOfBirth.text.toString())) {
             Utils.showToast(activity!!, getString(R.string.msg_empty_date_of_birth))
@@ -116,7 +125,7 @@ class SignUpStepFirstFragment : Fragment(), View.OnClickListener {
         } else if (TextUtils.isEmpty(et_email_id.text.toString())) {
             Utils.showToast(activity!!, resources.getString(R.string.msg_empty_email_id))
             isValid = false
-        } else if (Utils.isEmailValid(et_email_id.text.toString())) {
+        } else if (!Utils.isEmailValid(et_email_id.text.toString())) {
             Utils.showToast(activity!!, resources.getString(R.string.msg_invalid_email_id))
             isValid = false
         } else if (TextUtils.isEmpty(et_mobileNumber.text.toString())) {

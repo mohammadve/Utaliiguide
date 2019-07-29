@@ -34,6 +34,9 @@ import com.utaliiguides.models.GuideAddressModel
 import com.utaliiguides.models.countryList.StateLatLong
 import com.zhy.view.flowlayout.TagAdapter
 import com.zhy.view.flowlayout.FlowLayout
+import kotlinx.android.synthetic.main.fragment_signup_step_first.*
+import kotlinx.android.synthetic.main.fragment_signup_step_four.*
+import org.json.JSONArray
 import java.io.IOException
 
 
@@ -47,10 +50,13 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
 
 
     lateinit var addMoreStateList: ArrayList<GuideAddressModel>
-    var selectedCountryDate: CountryListData? = null
+    var selectedCountryData: CountryListData? = null
     var mSelectedMoreStateAdapter: SelectedStateListAdapter? = null
 
     lateinit var mLanguageList: ArrayList<String>
+
+    var selectedCountryPosition: Int = 0
+    var selectedStatePosition: Int = 0
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -245,10 +251,11 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
         {
             R.id.spinner_countrySelection ->
             {
+                selectedCountryPosition = p2
                 if (p2 != 0)
                 {
-                    selectedCountryDate = mCountryList.get(p2)
-                    getStateList(selectedCountryDate!!.getId()!!)
+                    selectedCountryData = mCountryList.get(p2)
+                    getStateList(selectedCountryData!!.getId()!!)
                 }
             }
             R.id.spinner_chooseState ->
@@ -259,9 +266,9 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
                     var latitude = Utils.getLatLongFromCityName(activity!!, selectedState.getName())
 
                     var guideAddress = GuideAddressModel()
-                    guideAddress.setCountryCode(selectedCountryDate!!.getSortname()!!)
-                    guideAddress.setCountryId(selectedCountryDate!!.getId()!!.toString())
-                    guideAddress.setCountryName(selectedCountryDate!!.getName()!!)
+                    guideAddress.setCountryCode(selectedCountryData!!.getSortname()!!)
+                    guideAddress.setCountryId(selectedCountryData!!.getId()!!.toString())
+                    guideAddress.setCountryName(selectedCountryData!!.getName()!!)
 
                     guideAddress.setStateId(selectedState.getId())
                     guideAddress.setStatename(selectedState.getName()!!)
@@ -284,7 +291,16 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btn_save -> {
-                (activity as SignUpActivity).displayFragment(3)
+                if (Utils.isInternetAvailable(activity!!))
+                {
+                    if (isValidate())
+                    {
+                        (activity as SignUpActivity).displayFragment(3)
+                    }
+                }
+                else {
+                    Utils.showToast(activity!!, resources.getString(R.string.msg_no_internet))
+                }
             }
             R.id.tv_addMoreState -> {
                 updateAddMoreCountries()
@@ -309,5 +325,84 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
     {
         et_languageName.setText("")
         mAddMoreLanguageFlowLayout!!.adapter.notifyDataChanged()
+    }
+
+    private  fun isValidate(): Boolean
+    {
+        var isValid = false
+        if (selectedCountryPosition == 0)
+        {
+            Utils.showToast(activity!!, "Please select your country.")
+            isValid = false
+        }
+        else if (addMoreStateList.size == 0)
+        {
+            Utils.showToast(activity!!, "Please select your states.")
+            isValid = false
+        }
+        else if (mLanguageList.size == 0)
+        {
+            Utils.showToast(activity!!, "Please select your languages.")
+            isValid = false
+        }
+        else
+        {
+            isValid = true
+            putAllDataToFieldMap()
+        }
+        return isValid
+    }
+
+    private fun putAllDataToFieldMap() {
+        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
+        try {
+            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+            mFieldMap.put("lang", getLanguages())
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun getCompleteGuideAddress() : String
+    {
+        var guideAddress = ""
+        if (addMoreStateList.size > 0)
+        {
+            var gson = Gson()
+            var element = gson.toJsonTree(addMoreStateList, object:TypeToken<ArrayList<GuideAddressModel>>() {
+            }.getType())
+
+            if (!element.isJsonArray())
+            {
+                // fail appropriately
+                throw Exception()
+            }
+            val jsonArray = element.getAsJsonArray()
+
+            guideAddress = jsonArray.toString()
+        }
+        return guideAddress
+    }
+
+
+    private fun getLanguages(): String
+    {
+        var languages = ""
+        if (mLanguageList.size > 0)
+        {
+            var i=0
+            while (i < mLanguageList!!.size) {
+                if (i==0)
+                {
+                    languages = mLanguageList[i]
+                }
+                else
+                {
+                    languages = languages + ", " + mLanguageList[i]
+                }
+                i++
+            }
+        }
+        return languages
     }
 }

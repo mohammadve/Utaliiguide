@@ -25,6 +25,7 @@ import java.io.File
 class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocumentCallBack {
 
     var mImageUtils: ImageUtils? = null
+
     var identityFrontFile: File? = null
     var identityBackFile: File? = null
     var localIdFrontFile: File? = null
@@ -71,7 +72,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
                 } else {
                     Utils.showToast(activity!!, resources.getString(R.string.msg_no_internet))
                 }
-                (activity as SignUpActivity).displayFragment(4)
+                //(activity as SignUpActivity).displayFragment(4)
             }
             R.id.iv_identityCardFrontSide -> {
                 mImageUtils!!.selectImage(activity!!, AppConstants.IDENTITY_CARD_FRONT, this)
@@ -192,4 +193,22 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
         }
         return isValid
     }
+
+//    private fun putAllDataToFieldMap() {
+//        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
+//        try {
+//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+//            mFieldMap.put("lang", getLanguages())
+//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+//            mFieldMap.put("lang", getLanguages())
+//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+//            mFieldMap.put("lang", getLanguages())
+//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+//            mFieldMap.put("lang", getLanguages())
+//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+//            mFieldMap.put("lang", getLanguages())
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//    }
 }
