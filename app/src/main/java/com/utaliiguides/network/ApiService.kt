@@ -273,7 +273,4 @@ interface ApiService {
         @Header("x-access-token") token : String,
         @Field("guideId") guideId : Int
     ):Call<JsonObject>
-
-
-
 }

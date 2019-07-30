@@ -71,24 +71,27 @@ class CreateNewTourActivity : AppCompatActivity(), View.OnClickListener {
 
         createNewTourViewModel!!.getMyCreatedTourData(this).observe(this, androidx.lifecycle.Observer {
 
-            if(it!= null && it.has("status") && it.get("status").equals("1")){
+            if(it!= null && it.has("status") && it.get("status").asString.equals("1"))
+            {
 
-                if(it.get("data").isJsonNull){
+                if(it.get("data").isJsonNull)
+                {
                     Utils.showLog("my created tour DATA is null ... ")
 
                 }
-                else if(!it.get("data").isJsonNull){
+                else if(!it.get("data").isJsonNull)
+                {
                    Utils.showLog("my created tour DATA is not null ... ")
 
                     var dataObj = it.getAsJsonObject("data")
 
                     if(dataObj.has("tourtype")){
 
-                        if(dataObj.get("tourtype").equals("1")){
+                        if(dataObj.get("tourtype").asString.equals("1")){
                             radioGroup.check(privateTourRadioButton.id)
-                            et_privatePrice.setText(dataObj.get("tourcost").asInt)
+                            et_privatePrice.setText(""+dataObj.get("tourcost").asInt)
                         }
-                        else if(dataObj.get("tourtype").equals("2")){
+                        else if(dataObj.get("tourtype").asString.equals("2")){
                             radioGroup.check(poolTourRadioButton.id)
                             tvStartDate.setText(dataObj.get("tourStartdate").asString)
                             tvEndDate.setText(dataObj.get("tourEnddate").asString)
@@ -96,10 +99,7 @@ class CreateNewTourActivity : AppCompatActivity(), View.OnClickListener {
                             et_poolPrice.setText("$ "+dataObj.get("tourcost").asString)
                             et_noteMessage.setText(dataObj.get("TourNotes").asString)
                         }
-
                     }
-
-
                 }
             }
         })
@@ -244,7 +244,13 @@ class CreateNewTourActivity : AppCompatActivity(), View.OnClickListener {
                 }else if(et_noteMessage.text.toString().equals("")){
                     Utils.showToast(this, "Please enter description for this pool")
                 } else{
-                    tour_price = et_poolPrice.text.toString().toInt()
+
+                    if(et_poolPrice.text.toString().contains("$")){
+                        var pool_price = et_poolPrice.text.toString().substring(2)
+                        tour_price = pool_price.toInt()
+                    } else{
+                        tour_price = et_poolPrice.text.toString().toInt()
+                    }
                     requesttype = 2
                     createPoolTourRequest()
                 }
@@ -255,7 +261,12 @@ class CreateNewTourActivity : AppCompatActivity(), View.OnClickListener {
                     Utils.showToast(this,"Please enter the private price (per day)")
 
                 }else{
-                    tour_price = et_privatePrice.text.toString().toInt()
+                    if(et_privatePrice.text.toString().contains("$")){
+                        var private_price = et_privatePrice.text.toString().substring(2)
+                        tour_price = private_price.toInt()
+                    } else{
+                        tour_price = et_privatePrice.text.toString().toInt()
+                    }
                     requesttype = 1
                     createPrivateTourRequest()
                 }
@@ -285,6 +296,15 @@ class CreateNewTourActivity : AppCompatActivity(), View.OnClickListener {
             if(it != null && it.has("status") && it.get("status").asString.equals("1")){
 
                 Utils.showToast(this, it.get("message").asString)
+
+                if(it.has("data")){
+
+                    var dataObject = it.getAsJsonObject("data")
+
+                    if(dataObject.get("tourtype").asString.equals("2")){
+                        et_privatePrice.setText("")
+                    }
+                }
             }
         })
 
@@ -298,6 +318,21 @@ class CreateNewTourActivity : AppCompatActivity(), View.OnClickListener {
             if(it!= null && it.has("status") && it.get("status").asString.equals("1")){
 
                   Utils.showToast(this, it.get("message").asString)
+
+                if(it.has("data")){
+
+                    var dataObject = it.getAsJsonObject("data")
+
+                    if(dataObject.get("tourtype").asString.equals("1")){
+
+                        tvStartDate.setText("")
+                        tvEndDate.setText("")
+                        et_noOfPeopleInPool.setText("")
+                        et_poolPrice.setText("")
+                        et_noteMessage.setText("")
+
+                    }
+                }
             }
         })
 
