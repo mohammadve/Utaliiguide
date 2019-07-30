@@ -6,6 +6,9 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
+import retrofit2.http.Multipart
+
+
 
 
 interface ApiService {
@@ -34,11 +37,8 @@ interface ApiService {
     @POST(ApiList.GET_QUESTIONS_LIST)
     @FormUrlEncoded
     fun getQuestions(
-        @Header("x-access-token") token: String,
         @Field("id") testId: String
     ): Call<JsonObject>
-
-
 
     @POST(ApiList.FORGOT_PASS_URL)
     @FormUrlEncoded
@@ -210,6 +210,37 @@ interface ApiService {
         @Field("req_id") req_id : Int
     ):Call<JsonObject>
 
+    @Multipart
+    @POST(ApiList.REQUEST_GUIDE_REGISTER)
+    fun requestGuideRegister(
+        @Part("name") guideName : RequestBody,
+        @Part("email") guideEmail : RequestBody,
+        @Part("mobile_no") guideMobile : RequestBody,
+        @Part("password") guidePassword : RequestBody,
+        @Part("lang") guideLanguage : RequestBody,
+        @Part("gender") guideGender : RequestBody,
+        @Part("dob") guideDob : RequestBody,
+        @Part("guideaddress") guideAddress : RequestBody,
+
+        @Part("tourist_identity_card_no") guideIdCardNo : RequestBody,
+        @Part guideIdCardFront : MultipartBody.Part,
+        @Part guideIdCardBack : MultipartBody.Part,
+
+        @Part("localid_proof_no") guideLocalIdCardNo : RequestBody,
+        @Part guideLocalIdCardFront : MultipartBody.Part,
+        @Part guideLocalIdCardBack : MultipartBody.Part,
+
+        @Part("driving_licenceid") guideDrivingLicenceNo : RequestBody,
+        @Part guideDrivingLicenceFront : MultipartBody.Part,
+        @Part guideDrivingLicenceBack : MultipartBody.Part,
+
+        @Part("questions") guideQusAns : RequestBody,
+        @Part("guide_about") guideAbout : RequestBody,
+        @Part("guide_pool_price") guidePoolPrice : RequestBody,
+        @Part("guide_private_price") guidePrivatePrice : RequestBody,
+        @Part("otp") otp : RequestBody,
+        @Part("device_token") deviceToken : RequestBody
+    ):Call<JsonObject>
 
     @POST(ApiList.CREATE_POOL_TOUR)
     @FormUrlEncoded

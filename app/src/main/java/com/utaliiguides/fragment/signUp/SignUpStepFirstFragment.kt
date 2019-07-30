@@ -151,16 +151,26 @@ class SignUpStepFirstFragment : Fragment(), View.OnClickListener {
     }
 
     private fun putAllDataToFieldMap() {
-        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
-        try {
-            mFieldMap!!.put("name", et_name.text.toString())
-            mFieldMap.put("gender", genderType)
-            //mFieldMap.put("dob", et_dateOfBirth.text.toString())
-            mFieldMap.put("email", et_email_id.text.toString())
-            mFieldMap.put("mobile_no", et_mobileNumber.text.toString())
-            mFieldMap.put("password", et_newPassword.text.toString())
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+
+        var mGuideRegisterModel = (activity as SignUpActivity).getGuideRegisterModel()
+        mGuideRegisterModel?.setName(et_name.text.toString())
+        mGuideRegisterModel?.setGender(genderType)
+        mGuideRegisterModel?.setDob(et_dateOfBirth.text.toString())
+        mGuideRegisterModel?.setEmail(et_email_id.text.toString())
+        mGuideRegisterModel?.setMobile_no(et_mobileNumber.text.toString())
+        mGuideRegisterModel?.setPassword(et_newPassword.text.toString())
+
+
+//        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
+//        try {
+//            mFieldMap!!.put("name", et_name.text.toString())
+//            mFieldMap.put("gender", genderType)
+//            //mFieldMap.put("dob", et_dateOfBirth.text.toString())
+//            mFieldMap.put("email", et_email_id.text.toString())
+//            mFieldMap.put("mobile_no", et_mobileNumber.text.toString())
+//            mFieldMap.put("password", et_newPassword.text.toString())
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
     }
 }

@@ -166,7 +166,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
         } else if (identityBackFile == null) {
             Utils.showToast(activity!!, "Please upload back side pick of your identity card")
             isValid = false
-        } else if (TextUtils.isEmpty(et_identityNo.text)) {
+        } else if (TextUtils.isEmpty(et_identityNo.text.toString())) {
             Utils.showToast(activity!!, "Please enter your valid identity card number")
             isValid = false
         } else if (localIdFrontFile == null) {
@@ -175,7 +175,7 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
         } else if (localIdBackFile == null) {
             Utils.showToast(activity!!, "Please upload back side pick of your local identity card")
             isValid = false
-        } else if (TextUtils.isEmpty(et_localIDProofNo.text)) {
+        } else if (TextUtils.isEmpty(et_localIDProofNo.text.toString())) {
             Utils.showToast(activity!!, "Please enter your valid local identity card number")
             isValid = false
         } else if (dlIdFrontFile == null) {
@@ -184,31 +184,57 @@ class SignUpStepThreeFragment : Fragment(), View.OnClickListener, UploadDocument
         } else if (dlIdBackFile == null) {
             Utils.showToast(activity!!, "Please upload back side pick of your valid driving licence")
             isValid = false
-        } else if (TextUtils.isEmpty(et_drivingLicenceNo.text)) {
+        } else if (TextUtils.isEmpty(et_drivingLicenceNo.text.toString())) {
             Utils.showToast(activity!!, "Please enter your valid driving licence number")
             isValid = false
         } else {
             isValid = true
-            //putAllDataToFieldMap()
+            putAllDataToFieldMap()
+            //putAllDocumentToFieldMap()
         }
         return isValid
     }
 
-//    private fun putAllDataToFieldMap() {
-//        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
+    //private fun putAllDocumentToFieldMap()
+    //{
+//        val mFieldMap = (activity as SignUpActivity).getGuideDocumentFieldMap()
 //        try {
-//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
-//            mFieldMap.put("lang", getLanguages())
-//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
-//            mFieldMap.put("lang", getLanguages())
-//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
-//            mFieldMap.put("lang", getLanguages())
-//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
-//            mFieldMap.put("lang", getLanguages())
-//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
-//            mFieldMap.put("lang", getLanguages())
+//            mFieldMap?.put("identity_front", identityFrontFile!!)
+//            mFieldMap?.put("identity_back", identityBackFile!!)
+//
+//            mFieldMap?.put("localid_front", localIdFrontFile!!)
+//            mFieldMap?.put("localid_back", localIdBackFile!!)
+//
+//            mFieldMap?.put("driving_licence_front", dlIdFrontFile!!)
+//            mFieldMap?.put("driving_licence_back", dlIdBackFile!!)
+//
 //        } catch (e: Exception) {
 //            e.printStackTrace()
 //        }
-//    }
+    //}
+
+    private fun putAllDataToFieldMap() {
+
+        var mGuideRegisterModel = (activity as SignUpActivity).getGuideRegisterModel()
+        mGuideRegisterModel?.setTourist_identity_card_no(et_identityNo.text.toString())
+        mGuideRegisterModel?.setIdentity_front(identityFrontFile!!)
+        mGuideRegisterModel?.setIdentity_back(identityBackFile!!)
+
+        mGuideRegisterModel?.setLocalid_proof_no(et_localIDProofNo.text.toString())
+        mGuideRegisterModel?.setLocalid_front(localIdFrontFile!!)
+        mGuideRegisterModel?.setLocalid_back(localIdBackFile!!)
+
+        mGuideRegisterModel?.setDriving_licenceid(et_drivingLicenceNo.text.toString())
+        mGuideRegisterModel?.setDriving_licence_front(dlIdFrontFile!!)
+        mGuideRegisterModel?.setDriving_licence_back(dlIdBackFile!!)
+
+//        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
+//        try {
+//            mFieldMap?.put("tourist_identity_card_no", et_identityNo.text.toString())
+//            mFieldMap?.put("localid_proof_no", et_localIDProofNo.text.toString())
+//            mFieldMap?.put("driving_licenceid", et_drivingLicenceNo.text.toString())
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+    }
 }

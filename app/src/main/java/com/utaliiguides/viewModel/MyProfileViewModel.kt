@@ -86,7 +86,6 @@ class MyProfileViewModel : ViewModel(){
         return guideUpdateProfilePicResult!!
     }
 
-
     fun updateProfile(mContext : Context, name : String, guide_email: String, contactno: String, emry_contact: String, guide_address:String) : MutableLiveData<JsonObject>{
         preference = AppPreference.getInstance(mContext)
         preference = AppPreference.getInstance(mContext)

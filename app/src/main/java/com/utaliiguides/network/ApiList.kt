@@ -40,6 +40,8 @@ class ApiList {
         const val CREATE_POOL_TOUR = "guides/addTours"
         const val MY_CREATED_TOUR_URL ="guides/myCreatedTour"
 
+        const val REQUEST_GUIDE_REGISTER = "guides/guideregister_new"
+
 
 
 
