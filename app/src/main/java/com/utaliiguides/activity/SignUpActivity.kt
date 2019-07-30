@@ -18,9 +18,11 @@ import com.utaliiguides.fragment.signUp.SignUpStepFourFragment
 import com.utaliiguides.fragment.signUp.SignUpStepThreeFragment
 import com.utaliiguides.fragment.signUp.SignUpStepTwoFragment
 import com.utaliiguides.helper.RealPathUtil
+import com.utaliiguides.models.signUpQuestion.GuideRegisterModel
 import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.io.File
 import java.io.IOException
 import java.util.HashMap
 
@@ -29,6 +31,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
     private var mManager: FragmentManager? = null
     private var mTransaction: FragmentTransaction? = null
     private var guideRegisterFields: HashMap<String, String>? = null
+    private var guideDocumentsFields: HashMap<String, File>? = null
+
+    private var mGuideRegisterModel: GuideRegisterModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +45,8 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar_signUp.setNavigationOnClickListener { removeFragmentFromBackStack()}
         guideRegisterFields = HashMap()
+        guideDocumentsFields = HashMap()
+        mGuideRegisterModel = GuideRegisterModel()
         displayFragment(1)
     }
 
@@ -265,5 +272,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
 
     fun getGuideRegisterFieldMap(): HashMap<String, String>? {
         return guideRegisterFields
+    }
+
+    fun getGuideDocumentFieldMap(): HashMap<String, File>? {
+        return guideDocumentsFields
+    }
+    fun getGuideRegisterModel(): GuideRegisterModel? {
+        return mGuideRegisterModel
     }
 }

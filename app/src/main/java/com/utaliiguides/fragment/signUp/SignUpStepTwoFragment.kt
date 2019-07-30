@@ -354,13 +354,18 @@ class SignUpStepTwoFragment : Fragment(), View.OnClickListener, AdapterView.OnIt
     }
 
     private fun putAllDataToFieldMap() {
-        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
-        try {
-            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
-            mFieldMap.put("lang", getLanguages())
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+
+        var mGuideRegisterModel = (activity as SignUpActivity).getGuideRegisterModel()
+        mGuideRegisterModel?.setGuideaddress(getCompleteGuideAddress())
+        mGuideRegisterModel?.setLang(getLanguages())
+
+//        val mFieldMap = (activity as SignUpActivity).getGuideRegisterFieldMap()
+//        try {
+//            mFieldMap!!.put("guideaddress", getCompleteGuideAddress())
+//            mFieldMap.put("lang", getLanguages())
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
     }
 
     private fun getCompleteGuideAddress() : String

@@ -38,6 +38,8 @@ class ApiList {
 
         const val REQUEST_LIST_DETAIL = "guides/request_details"
 
+        const val REQUEST_GUIDE_REGISTER = "guides/guideregister_new"
+
 
 
 
