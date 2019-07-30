@@ -243,7 +243,7 @@
                     app:layout_constraintLeft_toLeftOf="@+id/tv_startDateMsg"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_startDateMsg"
-                    android:text="DD/MM/YYYY"
+                    android:hint="DD/MM/YYYY"
                     android:padding="10dp"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"/>
@@ -278,7 +278,7 @@
                     app:layout_constraintLeft_toLeftOf="@+id/tv_endDateMsg"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_endDateMsg"
-                    android:text="DD/MM/YYYY"
+                    android:hint="DD/MM/YYYY"
                     android:padding="10dp"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"/>
@@ -424,7 +424,7 @@
                     <!--android:enabled="false"/>-->
 
             <com.utaliiguides.RobotoMediumTextView
-                    android:id="@+id/tvCreateTour"
+                    android:id="@+id/tvCreatePoolTour"
                     android:layout_width="0dp"
                     android:background="@drawable/rect_green_bg"
                     android:layout_height="wrap_content"
@@ -528,8 +528,10 @@
                         android:gravity="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
-                        android:text="@string/text_update"
+                        android:text="@string/text_create"
                         android:textAllCaps="true"/>
+
+                <!--@string/text_update-->
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,6 +37,8 @@ class ApiList {
         const val ABOUT_APP = "guide/appinfo"
 
         const val REQUEST_LIST_DETAIL = "guides/request_details"
+        const val CREATE_POOL_TOUR = "guides/addTours"
+        const val MY_CREATED_TOUR_URL ="guides/myCreatedTour"
 
 
 

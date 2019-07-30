@@ -210,4 +210,39 @@ interface ApiService {
         @Field("req_id") req_id : Int
     ):Call<JsonObject>
 
+
+    @POST(ApiList.CREATE_POOL_TOUR)
+    @FormUrlEncoded
+    fun createPoolTour(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId:Int,
+        @Field("requesttype") requesttype : Int,
+        @Field("tour_mem_id") tour_mem_id : Int,
+        @Field("startdate") startdate : String,
+        @Field("enddate") enddate : String,
+        @Field("TourNotes") tourNotes : String,
+        @Field("no_of_members") no_of_members : Int,
+        @Field("userId") userId : Int,
+        @Field("tour_price") tour_price : Int
+    ):Call<JsonObject>
+
+
+    @POST(ApiList.CREATE_POOL_TOUR)
+    @FormUrlEncoded
+    fun createPrivateTour(
+        @Header("x-access-token") token: String,
+        @Field("guideId") guideId:Int,
+        @Field("requesttype") requesttype: Int,
+        @Field("tour_price") tour_price: Int
+    ):Call<JsonObject>
+
+    @POST(ApiList.MY_CREATED_TOUR_URL)
+    @FormUrlEncoded
+    fun getMyCreatedTourData(
+        @Header("x-access-token") token : String,
+        @Field("guideId") guideId : Int
+    ):Call<JsonObject>
+
+
+
 }

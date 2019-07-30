@@ -13,6 +13,7 @@ import com.utaliiguides.activity.TourRequestListDetailActivity
 import com.utaliiguides.callBack.TourRequestListCallBack
 import com.utaliiguides.models.TourRequestListModel
 import java.text.SimpleDateFormat
+import java.text.ParseException
 
 
 class TourRequestsListAdapter (var mContext : Context, var tourRequestList : ArrayList<TourRequestListModel>, var itemListener : TourRequestListCallBack) : RecyclerView.Adapter<TourRequestsListAdapter.MyRequestViewHolder>() {
@@ -44,25 +45,36 @@ class TourRequestsListAdapter (var mContext : Context, var tourRequestList : Arr
             holder.tv_requesterName.text = userList.u_name
         }
 
+        var strArrivalDate = tourList.tourStartdate
+        var strDeptDate = tourList.tourEnddate
 
 
-        val arrivalDate = tourList.tourStartdate
-        var sdf1 = SimpleDateFormat("YYYY-MM-dd")
-        val newArrivalDate = sdf1.parse(arrivalDate)
-        sdf1 = SimpleDateFormat("dd, MMM yyyy")
-        val newArrivalDateString = sdf1.format(newArrivalDate)
+        try {
+            //create SimpleDateFormat object with source string date format
+            val sdfSource = SimpleDateFormat("yyyy-MM-dd")
+            //parse the string into Date object
+            val date = sdfSource.parse(strArrivalDate)
+            //create SimpleDateFormat object with desired date format
+            val sdfDestination = SimpleDateFormat("dd MMM, yyyy")
+            //parse the date into another format
+            strArrivalDate = sdfDestination.format(date)
+        } catch (pe: ParseException) {
+            println("Parse Exception : $pe")
+        }
 
 
-        val depDate = tourList.tourEnddate
-        var spf2 = SimpleDateFormat("YYYY-MM-dd")
-        val newDepDate = spf2.parse(depDate)
-        spf2 = SimpleDateFormat("dd, MMM yyyy")
-        val newDepDateString = spf2.format(newDepDate)
+        try {
+            val sdfSource = SimpleDateFormat("yyyy-MM-dd")
+            val date = sdfSource.parse(strDeptDate)
+            val sdfDestination = SimpleDateFormat("dd MMM, yyyy")
+            strDeptDate = sdfDestination.format(date)
+        } catch (pe: ParseException) {
+            println("Parse Exception : $pe")
+        }
 
 
-
-        holder.tv_arrivalDateText.text = newArrivalDateString
-        holder.tv_departureDateText.text = newDepDateString
+        holder.tv_arrivalDateText.text = strArrivalDate
+        holder.tv_departureDateText.text = strDeptDate
         holder.tv_tripPrice.text = "\$ "+tourList.tourcost
 
         if(tourList.tourtype == 1){

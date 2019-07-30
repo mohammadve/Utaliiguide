@@ -31,24 +31,24 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
 
         Handler().postDelayed(Runnable {
 
-            //if(preference!!.getAuthToken().equals("")){
+            if(preference!!.getAuthToken().equals("")){
 
                 var transition = Slide(Gravity.BOTTOM)
                 transition.setDuration(500)
                 TransitionManager.beginDelayedTransition(rl_splash_main, transition)
                 tv_getStarted.visibility = View.VISIBLE
                 tv_learnMore.visibility = View.VISIBLE
-//            }
-//            else{
-//
-//                if(!Utils.isInternetAvailable(this)){
-//                    Utils.showToast(this, resources.getString(R.string.msg_no_internet))
-//                }else{
-//                    val intent = Intent(this@SplashActivity, HomeActivity::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                }
-//            }
+            }
+            else{
+
+                if(!Utils.isInternetAvailable(this)){
+                    Utils.showToast(this, resources.getString(R.string.msg_no_internet))
+                }else{
+                    val intent = Intent(this@SplashActivity, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
 
 
 
