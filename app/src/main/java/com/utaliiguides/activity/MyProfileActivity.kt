@@ -315,6 +315,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.O
         AppPreference.getInstance(this).setUserData("")
         AppPreference.getInstance(this).setId(0)
         AppPreference.getInstance(this).setAuthToken("")
+        AppPreference.getInstance(this).setDeviceToken("")
 
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK

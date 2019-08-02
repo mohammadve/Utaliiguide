@@ -17,9 +17,9 @@
 
     <application
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@mipmap/app_icon"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+            android:roundIcon="@mipmap/app_icon"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
 
@@ -49,9 +49,7 @@
                   android:screenOrientation="portrait"/>
 
         <activity android:name=".activity.SignUpActivity"
-                  android:screenOrientation="portrait"
-
-        />
+                  android:screenOrientation="portrait"/>
 
         <activity android:name=".activity.HomeActivity"
                   android:screenOrientation="portrait"/>
@@ -98,9 +96,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-
-
-
 
 
 

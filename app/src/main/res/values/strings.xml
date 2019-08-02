@@ -4,6 +4,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
+
+    <string name="sendbird_app_id">AEBF2475-F805-47BA-A2F7-A36614BE6DD4</string>
+
+
     <string name="msg_no_internet">No internet connection, please check your internet connection and try again.</string>
     <string name="msg_empty_mobile_no">Please enter your mobile number</string>
     <string name="msg_empty_pass">Please enter your password</string>

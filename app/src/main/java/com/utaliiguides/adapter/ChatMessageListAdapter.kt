@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.utaliiguides.R
 
-class MessageUserListAdapter (var mContext : Context) : RecyclerView.Adapter<MessageUserListAdapter.MyMessageUserViewHolder>() {
+class ChatMessageListAdapter (var mContext : Context) : RecyclerView.Adapter<ChatMessageListAdapter.MyMessageUserViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageUserListAdapter.MyMessageUserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatMessageListAdapter.MyMessageUserViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_row_message_user_list,parent,false)
         return MyMessageUserViewHolder(view)
     }
@@ -20,7 +20,7 @@ class MessageUserListAdapter (var mContext : Context) : RecyclerView.Adapter<Mes
         return 10
     }
 
-    override fun onBindViewHolder(holder: MessageUserListAdapter.MyMessageUserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ChatMessageListAdapter.MyMessageUserViewHolder, position: Int) {
 
         //holder.bindNotificationView()
     }

@@ -10,6 +10,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.FirebaseApp
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.gson.JsonObject
 import com.utaliiguides.R
 import com.utaliiguides.viewModel.LoginViewModel
@@ -21,12 +24,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     var showPassword: Boolean = false
 
     var loginViewModel: LoginViewModel?= null
-    var device_token = "ksdfjksdhfkjhdsfkjhdskjfhkjsdhfkjhdf"
+    var device_token = ""
+    var preference : AppPreference ?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        preference = AppPreference.getInstance(this)
 
 
         initViews()
@@ -38,6 +44,30 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initViews() {
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+
+        FirebaseApp.initializeApp(applicationContext)
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+
+                if(!task.isSuccessful){
+                    Utils.showLog(task.exception!!.message!!)
+                    return@OnCompleteListener
+                }
+                // Get new Instance ID token
+                val token = task.result?.token
+                if (token != null) {
+                    Utils.showLog("Device token :" + token)
+                    if (Utils.isInternetAvailable(this)){
+                        preference!!.setDeviceToken(token)
+                        device_token = preference!!.getDeviceToken()
+                        //sendTokenToServer(token)
+                    }
+                }
+        })
+
+
+
+
     }
 
     override fun onClick(v: View?) {

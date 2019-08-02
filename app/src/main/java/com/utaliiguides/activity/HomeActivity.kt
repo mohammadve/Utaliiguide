@@ -221,7 +221,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(mIntent)
             }
             3 -> {
-                mFragment = MessagesFragment()
+                mFragment = ChatMessagesFragment()
                 replaceFragment(mFragment)
             }
             4 -> {
@@ -280,7 +280,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         {
             finish()
             //mManager!!.popBackStackImmediate()
-        } else if (mManager!!.findFragmentById(R.id.container) is MessagesFragment)
+        } else if (mManager!!.findFragmentById(R.id.container) is ChatMessagesFragment)
         {
             mManager!!.popBackStackImmediate()
         }

@@ -17,6 +17,7 @@ class AppPreference()
     var ID = "id"
     var PROFILE_PIC = "PROFILE_PIC"
     var GUIDE_STATUS = "NOTIFICATION_STATUS"
+    var DEVICE_TOKEN = "DEVICE_TOKEN"
 
     var mPreference: SharedPreferences? = null
 
@@ -49,6 +50,17 @@ class AppPreference()
     fun setAuthToken(token: String) {
         setString(TOKEN, token)
     }
+
+
+    fun getDeviceToken(): String {
+        return getString(DEVICE_TOKEN)
+    }
+
+    fun setDeviceToken(token: String) {
+        setString(DEVICE_TOKEN, token)
+    }
+
+
 
     fun getGuideOnlineStatus(): String {
         return getString(GUIDE_STATUS)

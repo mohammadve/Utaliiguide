@@ -2,16 +2,21 @@ package com.utaliiguides.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.utaliiguides.R
 import com.utaliiguides.activity.TourRequestListDetailActivity
 import com.utaliiguides.callBack.TourRequestListCallBack
 import com.utaliiguides.models.TourRequestListModel
+import kotlinx.android.synthetic.main.activity_tour_request_list_detail.*
 import java.text.SimpleDateFormat
 import java.text.ParseException
 
@@ -43,6 +48,14 @@ class TourRequestsListAdapter (var mContext : Context, var tourRequestList : Arr
             var userList = tourList.user
 
             holder.tv_requesterName.text = userList.u_name
+            holder.iv_requesterProfileImage
+
+            Glide
+                .with(mContext)
+                .load(userList.profile_img)
+                .apply(RequestOptions().placeholder(R.mipmap.ic_profile_placeholder).error(R.mipmap.ic_profile_placeholder))
+                .into(holder.iv_requesterProfileImage)
+
         }
 
         var strArrivalDate = tourList.tourStartdate
@@ -117,6 +130,7 @@ class TourRequestsListAdapter (var mContext : Context, var tourRequestList : Arr
         var tv_acceptText : TextView
         var tv_rejectText : TextView
         var cl_main : ConstraintLayout
+        var iv_requesterProfileImage : ImageView
 
         init {
             tv_requesterName = itemView.findViewById(R.id.tv_requesterName)
@@ -127,6 +141,7 @@ class TourRequestsListAdapter (var mContext : Context, var tourRequestList : Arr
             tv_acceptText = itemView.findViewById(R.id.tv_acceptText)
             tv_rejectText = itemView.findViewById(R.id.tv_rejectText)
             cl_main = itemView.findViewById(R.id.cl_main)
+            iv_requesterProfileImage = itemView.findViewById(R.id.iv_requesterProfileImage)
 
         }
 
