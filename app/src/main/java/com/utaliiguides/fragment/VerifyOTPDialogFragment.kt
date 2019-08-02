@@ -162,10 +162,7 @@ class VerifyOTPDialogFragment() : BottomSheetDialogFragment(){
             return dialogFragment
 
         }
-
     }
-
-
 
     fun checkValidations(): Boolean {
 
@@ -180,7 +177,6 @@ class VerifyOTPDialogFragment() : BottomSheetDialogFragment(){
             Utils.showToast(context!!, resources.getString(R.string.msg_invalid_otp))
             return false
         }
-
         return true
 
     }

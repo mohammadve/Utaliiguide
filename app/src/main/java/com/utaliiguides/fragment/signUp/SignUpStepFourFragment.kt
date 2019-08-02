@@ -13,6 +13,7 @@ import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
 import com.utaliiguides.R
 import com.utaliiguides.activity.SignUpActivity
+import com.utaliiguides.fragment.VerifyOTPDialogFragment
 import com.utaliiguides.models.countryList.CountryListData
 import com.utaliiguides.models.signUpQuestion.QuestionListData
 import com.utaliiguides.models.signUpQuestion.SignUpQuestionAnswerModel
@@ -21,11 +22,13 @@ import com.utalli.helpers.Utils
 import kotlinx.android.synthetic.main.fragment_signup_step_four.*
 import kotlinx.android.synthetic.main.fragment_signup_step_two.*
 
-class SignUpStepFourFragment : Fragment(), View.OnClickListener {
+class SignUpStepFourFragment : Fragment(), View.OnClickListener,  VerifyOTPDialogFragment.OnButtonClick{
 
     var mSignUpViewModel: SignUpProcessViewModel? = null
     var mQuestionList: ArrayList<QuestionListData>? = null
     var mGuideQusAnsList: ArrayList<SignUpQuestionAnswerModel>? = null
+    var mOTP: String = ""
+    var bottomSheetDialogFragment: VerifyOTPDialogFragment? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -58,7 +61,7 @@ class SignUpStepFourFragment : Fragment(), View.OnClickListener {
                 {
                     if (isValidate())
                     {
-                        initiateGuideRegisterProcess()
+                        initiateGuideRegisterProcess(false)
                         //activity!!.finish()
                     }
                 }
@@ -178,18 +181,39 @@ class SignUpStepFourFragment : Fragment(), View.OnClickListener {
         mGuideRegisterModel?.setGuide_about("This is test message about guide")
         mGuideRegisterModel?.setGuide_pool_price("10")
         mGuideRegisterModel?.setGuide_private_price("20")
-        mGuideRegisterModel?.setOtp("")
     }
 
-    private fun initiateGuideRegisterProcess()
+    private fun initiateGuideRegisterProcess(isOTP: Boolean)
     {
         var mGuideRegisterModel = (activity as SignUpActivity).getGuideRegisterModel()
+        if (isOTP)
+        {
+            mGuideRegisterModel?.setOtp(mOTP)
+        }
+        else
+        {
+            mGuideRegisterModel?.setOtp("")
+        }
         if (mGuideRegisterModel != null)
         {
             mSignUpViewModel!!.setUpGuideRegister(activity!!, mGuideRegisterModel).observe(activity!!, androidx.lifecycle.Observer {
                 if (it != null && it.has("status") && it.get("status").asString.equals("1"))
                 {
-
+                    if(it.has("otp"))
+                    {
+                        mOTP = it.get("otp").asString
+                        bottomSheetDialogFragment = VerifyOTPDialogFragment.newInstance(mOTP, this)
+                        bottomSheetDialogFragment!!.show(childFragmentManager, "VerifyOTPDialogFragment")
+                    }
+                    else if(it.has("data") && !it.get("data").isJsonNull)
+                    {
+                        Utils.showToast(activity!!, it.get("message").asString)
+                        activity!!.finish()
+                    }
+                    else
+                    {
+                        Utils.showToast(activity!!,resources.getString(R.string.msg_common_error))
+                    }
                 }
                 else {
                     if(it != null && it.has("message")){
@@ -199,5 +223,20 @@ class SignUpStepFourFragment : Fragment(), View.OnClickListener {
                 }
             })
         }
+    }
+
+    override fun onDismiss() {
+        bottomSheetDialogFragment = null
+    }
+
+    override fun onResendClick() {
+        bottomSheetDialogFragment!!.dismiss()
+        initiateGuideRegisterProcess(false)
+    }
+
+    override fun onSubmitClick() {
+        Utils.hideSoftKeyboard(activity!!)
+        bottomSheetDialogFragment!!.dismiss()
+        initiateGuideRegisterProcess(true)
     }
 }
